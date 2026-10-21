@@ -22,3 +22,5 @@ footer{border-top:1px solid var(--rule);padding-top:25px;padding-bottom:30px;dis
 @media(max-width:700px){.paper-actions{gap:10px;flex-wrap:wrap}.paper-actions>a,.paper-actions>button,.paper-tools>summary{min-height:44px;min-width:44px;justify-content:center}.paper-meta{font-size:13px}.paper-tools>summary{min-width:55px}.chart-values select{margin-left:0;display:block;width:100%}.mobile-comparisons .remove-comparison{float:none;margin:0 0 7px;padding:0;color:var(--blue)}.statistics-selection p{font-size:13px}.statistics-selection{padding-left:12px}.reading-path li>button:last-child{min-height:44px}}
 
 .statistics-selection button{border:0;background:transparent;color:var(--blue);text-decoration:underline;text-underline-offset:3px;cursor:pointer}.statistics-selection button:hover{text-decoration-thickness:2px}
+
+.paper-year small{display:block}.additional-sources{margin:18px 0}.additional-sources summary{font-size:13px;color:var(--muted)}.bibliography-table th{width:165px}@media(max-width:700px){.paper-year small{font-size:11px}.bibliography-table th{width:104px}.result-tools select{max-width:130px}}

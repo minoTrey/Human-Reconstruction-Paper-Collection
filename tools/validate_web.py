@@ -1,8 +1,8 @@
 """Offline consistency checks for public indexes, detail shards, downloads and stats."""
-import csv,json,pathlib
+import csv,json,pathlib,os
 from collections import Counter
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-OUT=ROOT/'web-publish' if (ROOT/'web-publish').exists() else ROOT
+OUT=ROOT/os.environ['HUMAN_WEB_OUTPUT'] if os.environ.get('HUMAN_WEB_OUTPUT') else ROOT/'web-publish' if (ROOT/'web-publish').exists() else ROOT
 def load(p):return json.loads((OUT/p).read_text(encoding='utf-8'))
 def main():
  meta=load('data/meta.json');broad=load('data/candidates.json');ref=load('data/reference.json');stats=load('data/statistics.json');editorial=load('downloads/editorial-reviews.json');reading=load('data/reading-paths.json')
