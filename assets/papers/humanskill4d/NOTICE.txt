@@ -1,0 +1,6 @@
+Original explanatory diagram by the Human Reconstruction Paper Collection editors.
+Concept source: Kim et al., HumanSkill-4D, arXiv:2610.24452v2, Section4.
+https://arxiv.org/html/2610.24452v2#S4
+No paper artwork, image, figure layout or experimental result copied or traced.
+Diagram license: CC BY4.0 https://creativecommons.org/licenses/by/4.0/
+The paper uses an arXiv non-exclusive distribution license; the diagram license applies only to this newly authored explanation.
