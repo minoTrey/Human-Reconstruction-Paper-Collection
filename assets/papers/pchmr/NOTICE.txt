@@ -1,0 +1,6 @@
+PCHMR Figure 2 (PDF page 6)
+Cao et al., PCHMR, arXiv:2610.24841v1
+Source: https://arxiv.org/html/2610.24841v1#S3.F2
+Original image: https://arxiv.org/html/2610.24841v1/fig_pipeline.png
+License: Creative Commons Attribution 4.0 https://creativecommons.org/licenses/by/4.0/
+Modification: PNG converted to WebP; no content changes.

@@ -67,7 +67,7 @@ function closeFigureViewer(){if(figureViewer?.dialog.open)figureViewer.dialog.cl
 function openFigure(opener){if(!figureViewer)figureViewer=makeFigureViewer();figureViewer.open(opener);}
 function makeFigureViewer(){
  const dialog=document.createElement('dialog');dialog.id='figure-dialog';dialog.setAttribute('aria-labelledby','figure-viewer-title');
- dialog.innerHTML=`<div class="figure-toolbar"><strong id="figure-viewer-title">Figure 3</strong><div class="figure-controls"><button type="button" data-view-fit title="전체 그림 맞춤">맞춤</button><button type="button" data-view-original title="원본 크기">1:1</button><button type="button" data-view-minus aria-label="그림 축소">−</button><output id="figure-scale" aria-live="polite"></output><button type="button" data-view-plus aria-label="그림 확대">+</button><button type="button" data-view-close aria-label="큰 그림 닫기">×</button></div></div><div id="figure-stage" tabindex="0" role="region" aria-label="확대한 그림; 드래그나 방향키로 이동"><div id="figure-canvas"><img id="figure-image" draggable="false"></div></div><div class="figure-credit"></div>`;
+ dialog.innerHTML=`<div class="figure-toolbar"><strong id="figure-viewer-title">그림</strong><div class="figure-controls"><button type="button" data-view-fit title="전체 그림 맞춤">맞춤</button><button type="button" data-view-original title="원본 크기">1:1</button><button type="button" data-view-minus aria-label="그림 축소">−</button><output id="figure-scale" aria-live="polite"></output><button type="button" data-view-plus aria-label="그림 확대">+</button><button type="button" data-view-close aria-label="큰 그림 닫기">×</button></div></div><div id="figure-stage" tabindex="0" role="region" aria-label="확대한 그림; 드래그나 방향키로 이동"><div id="figure-canvas"><img id="figure-image" draggable="false"></div></div><div class="figure-credit"></div>`;
  document.body.append(dialog);
  const stage=dialog.querySelector('#figure-stage'),canvas=dialog.querySelector('#figure-canvas'),img=dialog.querySelector('#figure-image'),output=dialog.querySelector('#figure-scale');
  let scale=1,width=1,height=1,mode='fit',trigger=null,pinch=null;const pointers=new Map();
@@ -100,7 +100,7 @@ function makeFigureViewer(){
  dialog.addEventListener('close',()=>{pointers.clear();pinch=null;stage.classList.remove('dragging');if(trigger?.isConnected&&$('#paper-dialog').open)trigger.focus({preventScroll:true});});
  $('#paper-dialog').addEventListener('close',()=>{if(dialog.open)dialog.close();});
  addEventListener('resize',()=>{if(dialog.open){if(mode==='fit')fit();else zoom(scale);}});
- return {dialog,open(opener){const f=JSON.parse(opener.dataset.figureConfig);trigger=opener;width=f.width;height=f.height;scale=1;img.src=f.src;img.alt=f.alt;
+ return {dialog,open(opener){const f=JSON.parse(opener.dataset.figureConfig);trigger=opener;width=f.width;height=f.height;scale=1;img.src=f.src;img.alt=f.alt;dialog.querySelector('#figure-viewer-title').textContent=f.label||(f.caption?.match(/^Figure\s+\d+/)?.[0])||'그림';
  dialog.querySelector('.figure-credit').innerHTML=`<span>드래그·방향키로 이동 · 휠·두 손가락으로 확대</span><a href="${esc(f.source)}" target="_blank" rel="noopener">${esc(f.credit)}</a> · <a href="${esc(f.licenseUrl)}" target="_blank" rel="license noopener">${esc(f.license)}</a>`;
  dialog.showModal();requestAnimationFrame(fit);dialog.querySelector('[data-view-close]').focus();}};
 }
