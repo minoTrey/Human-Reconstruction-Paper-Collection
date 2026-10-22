@@ -1,0 +1,7 @@
+Figure 3 from HORIA: 4D Human and Object Reconstruction from a Monocular Video with Interaction-Aware Re-Rendering.
+Hyeongjin Nam, Taeryung Lee, Daniel Sungho Jung, Kyoung Mu Lee. arXiv:2610.25960v2, p.4.
+Source: https://arxiv.org/html/2610.25960v2#S2.F3
+Original image: https://arxiv.org/html/2610.25960v2/_2_pipeline.png
+License: CC BY-NC-SA 4.0, https://creativecommons.org/licenses/by-nc-sa/4.0/
+Changes: PNG converted to web-optimized WebP; content and aspect ratio unchanged.
+This figure retains its own license independently of the website code.
