@@ -1,0 +1,9 @@
+GPAvatar: Generalizable and Precise Head Avatar from Image(s)
+Xuangeng Chu, Yu Li, Ailing Zeng, Tianyu Yang, Lijian Lin, Yunfei Liu, Tatsuya Harada.
+ICLR 2024; arXiv:2401.10215v1. Figure 3, PDF page 4.
+Article and figure license: Creative Commons Attribution 4.0 International (CC BY 4.0).
+License: https://creativecommons.org/licenses/by/4.0/
+Source article: https://arxiv.org/html/2401.10215v1#S3.F3
+Source image: https://arxiv.org/html/2401.10215v1/pipeline.png
+The original complete Figure 3 alone is reproduced. No tracing, layout edits, recoloring, or labels added.
+PNG transcoded losslessly to WebP. Decoded RGBA pixels verified identical.
