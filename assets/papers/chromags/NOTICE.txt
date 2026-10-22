@@ -1,0 +1,6 @@
+Original explanatory diagram by the Human Reconstruction Paper Collection editors.
+Concept source: Canela Jiménez and Sànchez-Riera, ChromaGS, arXiv:2610.03441v1, SectionIII.
+https://arxiv.org/html/2610.03441v1#S3
+No author figure, layout, face image, experimental rendering or result copied or traced.
+Diagram license: CC BY4.0 https://creativecommons.org/licenses/by/4.0/
+The paper uses the arXiv non-exclusive license; this diagram license applies only to the newly authored explanation.
