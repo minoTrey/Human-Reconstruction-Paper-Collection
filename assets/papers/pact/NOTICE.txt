@@ -1,0 +1,5 @@
+Figure2: PACT architecture. Akizhanov et al., PACT, arXiv:2610.00451v2, Figure2 (PDFp4).
+Source: https://arxiv.org/html/2610.00451v2/ModelArchitecture.png
+Article license: CC BY-NC-SA4.0, https://creativecommons.org/licenses/by-nc-sa/4.0/
+Modification: lossless WebP conversion only; original pixels and layout retained.
+No new experimental image or result was generated.
