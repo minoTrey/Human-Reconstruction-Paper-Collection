@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#3e6587"/></marker></defs>
+<style>text{font-family:"Malgun Gothic","Segoe UI",sans-serif;fill:#17364d} .title{font-size:38px;font-weight:700}.section{font-size:29px;font-weight:700}.heading{font-size:28px;font-weight:700}.body{font-size:25px}.note{font-size:23px;fill:#50677a}.box{fill:#fff;stroke:#b6c9d9;stroke-width:2}.flow{fill:none;stroke:#3e6587;stroke-width:4;marker-end:url(#arrow)}</style>
+<rect width="1600" height="900" fill="#f8fafc"/>
+<text x="55" y="65" class="title">Gaussian Head Avatar · 원논문 v2 설명 도식</text>
+<text x="55" y="105" class="note">사람별로 학습한 3D 표현을 구동해 RGB 영상을 만듭니다.</text>
+<text x="55" y="162" class="section">사람마다 학습</text>
+<rect x="55" y="187" width="440" height="218" rx="17" class="box"/>
+<text x="78" y="231" class="heading">동기화된 여러 시점의 영상</text>
+<text x="78" y="274" class="body">RGB 영상 + 카메라 정보</text>
+<text x="78" y="314" class="body">배경 제거 · BFM 피팅</text>
+<text x="78" y="354" class="body">→ 표정 · 포즈 · 3D 랜드마크 추정</text>
+<path d="M507 296 H554" class="flow"/>
+<rect x="575" y="187" width="440" height="218" rx="17" class="box"/>
+<text x="598" y="231" class="heading">기하 가이드로 초기화</text>
+<text x="598" y="274" class="body">SDF → DMTet 중립 메시</text>
+<text x="598" y="314" class="body">메시 정점 · 특징 → Gaussians</text>
+<text x="598" y="354" class="body">변형 · 색상 MLP도 이전</text>
+<path d="M1027 296 H1074" class="flow"/>
+<rect x="1095" y="187" width="450" height="218" rx="17" fill="#e8f1f9" stroke="#7297b8" stroke-width="2"/>
+<text x="1118" y="231" class="heading">학습된 3D 표현</text>
+<text x="1118" y="274" class="body">중립 Gaussians + 특징</text>
+<text x="1118" y="314" class="body">표정 · 포즈 조건 신경망</text>
+<text x="1118" y="354" class="body">+ 초해상도 네트워크</text>
+<text x="55" y="481" class="section">학습된 아바타 구동</text>
+<rect x="55" y="507" width="330" height="215" rx="17" class="box"/>
+<text x="77" y="552" class="heading">구동 조건</text>
+<text x="77" y="597" class="body">학습된 아바타</text>
+<text x="77" y="637" class="body">+ 표정 계수 · 머리 포즈</text>
+<text x="77" y="677" class="note">사람별 학습 후 사용</text>
+<path d="M397 614 H433" class="flow"/>
+<rect x="453" y="507" width="330" height="215" rx="17" class="box"/>
+<text x="475" y="552" class="heading">동적 Gaussians</text>
+<text x="475" y="597" class="body">위치 · 색 · 회전</text>
+<text x="475" y="637" class="body">크기 · 불투명도 조절</text>
+<text x="475" y="677" class="note">거리로 조건 영향 배분</text>
+<path d="M795 614 H831" class="flow"/>
+<rect x="851" y="507" width="330" height="215" rx="17" class="box"/>
+<text x="873" y="552" class="heading">특징 렌더링</text>
+<text x="873" y="597" class="body">렌더 카메라를 지정</text>
+<text x="873" y="637" class="body">512 × 512 × 32</text>
+<text x="873" y="677" class="note">아직 최종 RGB 화면이 아님</text>
+<path d="M1193 614 H1229" class="flow"/>
+<rect x="1249" y="507" width="296" height="215" rx="17" fill="#e8f1f9" stroke="#7297b8" stroke-width="2"/>
+<text x="1271" y="552" class="heading">초해상도 출력</text>
+<text x="1271" y="597" class="body">2048 × 2048</text>
+<text x="1271" y="637" class="body">RGB 영상</text>
+<text x="1271" y="677" class="note">신경 렌더링 결과</text>
+<rect x="55" y="757" width="1490" height="62" rx="13" fill="#eef3f7"/>
+<text x="77" y="797" class="body">학습 중: 렌더링 결과를 촬영 RGB와 비교하며 Gaussians · MLP · 초해상도망을 함께 최적화합니다.</text>
+<text x="55" y="862" class="note">출처: Xu et al., Gaussian Head Avatar, arXiv:2312.03029v2, §3–4 · 이 아카이브의 독자 설명 도식</text>
+</svg>

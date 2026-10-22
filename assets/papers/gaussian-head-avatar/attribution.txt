@@ -1,0 +1,7 @@
+Gaussian Head Avatar v2 — independently authored explanatory diagram
+Based on factual method descriptions in Xu et al., arXiv:2312.03029v2, Sections3–4.
+Source: https://arxiv.org/html/2312.03029v2#S4
+Created for this archive from new SVG boxes, arrows and Korean labels. No source-paper figure, photograph, screenshot or original layout was reused. This is not the paper Figure2 and must not be cited as an author-provided figure.
+The paper v2 uses the arXiv perpetual non-exclusive license; the official repository uses its own license. Neither is represented as a general permission to reuse their figures.
+method.svg is the authored source; method.webp is its lossless rendered display asset. No blanket license for the original paper or code is granted by this explanatory diagram.
+Checked 2026-10-22 UTC.
