@@ -1,0 +1,6 @@
+Original explanatory diagram by the Human Reconstruction Paper Collection editors.
+Concept source: Güler, Dense4D, arXiv:2610.22325v1, Sections 3.1–3.4.
+https://arxiv.org/html/2610.22325v1#S3
+No original paper artwork, rendering, figure layout or experimental image copied or traced.
+Diagram license: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+The paper itself uses the arXiv non-exclusive distribution license; that license is not assigned to this new diagram.
