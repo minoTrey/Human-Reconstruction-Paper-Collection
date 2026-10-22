@@ -85,7 +85,7 @@ function detailContent(){
   }
  }else{
   if(tab==='numbers')body.innerHTML=catalogNumbers();
-  if(tab==='evidence')body.innerHTML=`<p>${esc(textSelection())}</p><p>선택한 검색어·주제·연도·날짜 기준을 유지한 논문 목록에서 개별 Paper 링크를 확인할 수 있습니다.</p><button id="focus-open-catalog">현재 조건의 논문 보기</button><p><a href="data/reference.json" target="_blank" rel="noopener">기존 수집 목록 JSON</a> · <a href="data/candidates.json" target="_blank" rel="noopener">검색 자료 전체 JSON</a></p>`;
+  if(tab==='evidence')body.innerHTML=`<p>${esc(textSelection())}</p><p>선택한 검색어·주제·연도·날짜 기준을 유지한 논문 목록에서 개별 Paper 링크를 확인할 수 있습니다.</p><button id="focus-open-catalog">현재 조건의 논문 보기</button><p><a href="data/reader.json" target="_blank" rel="noopener">현재 논문 목록 JSON</a> · <a href="data/candidates.json" target="_blank" rel="noopener">검색 자료 전체 JSON</a></p>`;
   if(tab==='method')body.innerHTML=`<p>현재 목록에서 선택한 문헌의 레코드 집계입니다. 제목·초록을 의미로 읽은 확률표본 분석과 분모가 다릅니다.</p><label for="focus-basis">날짜 기준</label><select id="focus-basis">${$('#basis').innerHTML}</select><p>날짜를 확인한 레코드만 연도별로 셉니다. 미확인 월·일을 임의로 채우지 않습니다. 2026은 10월 20일까지의 부분 연도입니다.</p><p>${esc($('#annual-note').textContent)}</p><p>주제는 주분류 하나씩, 표현은 여러 자동 추출 단서를 중복 집계합니다. 표현 언급은 주 방법·실제 사용률·방법의 우수성을 뜻하지 않습니다. 자료 누락과 관련성 미확인이 있어 분야 전체 성장으로 일반화하지 않습니다.</p><p><a href="about.html#statistics" target="_blank" rel="noopener">날짜와 집계 기준</a></p>`;
  }
  if($('#focus-heat-choice'))$('#focus-heat-choice').value=$('#heat-representation').value;
