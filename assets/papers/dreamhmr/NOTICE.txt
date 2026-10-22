@@ -1,0 +1,6 @@
+DreamHMR Figure1, original paper architecture, PDF page4.
+Xu, Gong and Liu, DreamHMR: From Video Generation to Human Motion Modeling via Structural Focusing. arXiv:2610.20124v1.
+Source: https://arxiv.org/html/2610.20124v1#S3.F1
+License: CC BY4.0 https://creativecommons.org/licenses/by/4.0/ (verified from original arXiv article).
+Modification: extracted Figure1 bounds from PDF page4 and converted to WebP. No diagram contents changed.
+Extraction: pdftoppm scale-to3200, page4, crop(446,338,2036,1433), WebP quality92.
