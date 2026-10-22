@@ -1,0 +1,7 @@
+HHAvatar: Gaussian Head Avatar with Dynamic Hairs — arXiv:2312.03029v3, Figure 2
+Authors: Zhanfeng Liao, Yuelang Xu, Zhe Li, Qijing Li, Boyao Zhou, Ruifeng Bai, Di Xu, Hongwen Zhang, Yebin Liu.
+Source: https://arxiv.org/html/2312.03029v3/overviewpro3.png
+Context: https://arxiv.org/html/2312.03029v3#S3.F2
+License: CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+Uncropped figure, lossless WebP conversion; decoded RGBA pixels unchanged. This asset is redistributed under CC BY-SA 4.0; this notice applies to the figure, not the entire website.
+Observed article license: https://arxiv.org/html/2312.03029v3 ; checked 2026-10-22 UTC.
