@@ -1,0 +1,6 @@
+ARS-Avatar v3 — independently authored explanatory diagram
+Method source: https://arxiv.org/html/2609.27600v3#S3 ; Sections3,7,10.
+New SVG boxes/arrows/Korean labels illustrate observations, deformation priors, surfels, deferred PBR and the radius-only SSAO gradient path. No source-paper/project figure, photograph or original layout is reused. This is not the author Figure2.
+Paper uses arXiv perpetual non-exclusive license; project states All rights reserved. Repository MIT license is not treated as permission for paper/project figures.
+method.svg is the authored source; method.webp is the lossless rendered display asset. No blanket license for original paper/project material is granted.
+Checked 2026-10-22 UTC.

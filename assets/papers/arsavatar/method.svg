@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#3e6587"/></marker></defs><style>text{font-family:Malgun Gothic,Segoe UI,sans-serif;fill:#17364d}.title{font-size:38px;font-weight:700}.section{font-size:29px;font-weight:700}.heading{font-size:28px;font-weight:700}.body{font-size:25px}.note{font-size:23px;fill:#50677a}.flow{fill:none;stroke:#3e6587;stroke-width:4;marker-end:url(#arrow)}</style><rect width="1600" height="900" fill="#f8fafc"/>
+<text x="55" y="65" class="title">ARS-Avatar · v3 설명 도식</text>
+<text x="55" y="105" class="note">템플릿은 입력 단서, 최종 아바타 표현은 표면에 정렬된 Gaussian Surfels입니다.</text>
+<text x="55" y="162" class="section">포즈에 따른 아바타 추정</text>
+<rect x="55" y="187" width="440" height="218" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="78" y="231" class="heading">관측 영상과 보조 정보</text>
+<text x="78" y="274" class="body">다중시점 RGB</text>
+<text x="78" y="314" class="body">거친 중립 템플릿 메시</text>
+<text x="78" y="354" class="body">SMPL-X 포즈 · 변형 정보</text>
+<path d="M507 296 h47" class="flow"/>
+<rect x="575" y="187" width="440" height="218" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="598" y="231" class="heading">위치맵 · 변형 prior</text>
+<text x="598" y="274" class="body">템플릿 앞 · 뒤 위치맵</text>
+<text x="598" y="314" class="body">변형 크기 · 방향</text>
+<text x="598" y="354" class="body">최근접 SMPL-X 정점 거리</text>
+<path d="M1027 296 h47" class="flow"/>
+<rect x="1095" y="187" width="440" height="218" rx="17" fill="#e8f1f9" stroke="#b6c9d9" stroke-width="2"/>
+<text x="1118" y="231" class="heading">Surfel 속성 추정</text>
+<text x="1118" y="274" class="body">StyleUNets + LBS</text>
+<text x="1118" y="314" class="body">위치 · 방향 · 재질 등</text>
+<text x="1118" y="354" class="body">포즈별 표면 조각</text>
+<text x="55" y="481" class="section">재조명 렌더링과 차폐 학습</text>
+<rect x="55" y="507" width="440" height="218" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="78" y="551" class="heading">렌더링에 사용할 맵</text>
+<text x="78" y="594" class="body">깊이 · 법선 · 위치</text>
+<text x="78" y="634" class="body">albedo · roughness</text>
+<text x="78" y="674" class="body">+ 학습 가능한 HDR 조명</text>
+<path d="M507 616 h47" class="flow"/>
+<rect x="575" y="507" width="440" height="218" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="598" y="551" class="heading">Deferred PBR + SSAO</text>
+<text x="598" y="594" class="body">맵에서 재질별 빛 반응 계산</text>
+<text x="598" y="634" class="body">SSAO로 주변 차폐 근사</text>
+<text x="598" y="674" class="body">9부위의 차폐 반경 학습</text>
+<path d="M1027 616 h47" class="flow"/>
+<rect x="1095" y="507" width="440" height="218" rx="17" fill="#e8f1f9" stroke="#b6c9d9" stroke-width="2"/>
+<text x="1118" y="551" class="heading">재조명 RGB 출력</text>
+<text x="1118" y="594" class="body">학습한 아바타에</text>
+<text x="1118" y="634" class="body">목표 포즈 · 시점 · 환경조명</text>
+<text x="1118" y="674" class="body">입력 → 새 렌더링 영상</text>
+<rect x="55" y="757" width="1480" height="62" rx="13" fill="#fff1dc"/>
+<text x="77" y="797" class="body">SSAO gradient 경로: 반경 오프셋 9개만 학습 · 법선·깊이·방향·중요도 맵은 이 경로에서 고정</text>
+<text x="55" y="862" class="note">논문 v3 §3·7·10의 방법을 바탕으로 재구성 · 원문 그림·사진 미사용</text>
+</svg>
