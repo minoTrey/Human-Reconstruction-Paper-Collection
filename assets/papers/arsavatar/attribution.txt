@@ -1,3 +1,14 @@
+ARS-Avatar visual-quality replacement
+
+Independent ImageGen explanation based on method facts in Jiateng Liu et al.,ARS-Avatar:Animatable and Relightable Surfel Avatars with Learnable Ambient Occlusion,arXiv2609.27600v3 sections3,7,10.
+Source: https://arxiv.org/html/2609.27600v3
+Original Figure2 method is linked only,not reproduced or embedded: https://arxiv.org/html/2609.27600v3#S2.F2
+The arXiv non-exclusive distribution license and project All rights reserved are not treated as third-party figure reuse permission. Repository MIT is not extended to paper/project figures. No original figure image or source photo was used in the generated illustration.
+
+The fully clothed adult,multiview capture,coarse template,position/deformation maps,surfel footprints,material maps and environment previews are fictional educational examples,not actual participants,learned parameters or paper results. Magnified translucent ellipses explain surface-tangent Gaussian footprints,not rigid scales or a physically calibrated point set. The input coarse template/SMPL-X information differs from the final Gaussian Surfel representation;ordinary mesh export is not claimed. Training is person-specific under unknown capture illumination. Rendering takes the learned avatar and target pose,view,environment illumination. Normal orientation colors differ from unlit albedo material colors and grayscale roughness;HDR panoramas are lighting previews,not a claim to an exact cubemap layout.
+SSAO approximates local visibility. Finite differences train nine body-part radius offsets only;geometry maps are fixed along this path. Long optimization,limited handcrafted priors,metallic=0,strong-reflection limitations remain in the unchanged guide. No universal pose guarantee or realtime generation claim is made.
+
+HISTORICAL ATTRIBUTION FOR RETIRED method.svg / method.webp ONLY (assets retained;no longer displayed):
 ARS-Avatar v3 — independently authored explanatory diagram
 Method source: https://arxiv.org/html/2609.27600v3#S3 ; Sections3,7,10.
 New SVG boxes/arrows/Korean labels illustrate observations, deformation priors, surfels, deferred PBR and the radius-only SSAO gradient path. No source-paper/project figure, photograph or original layout is reused. This is not the author Figure2.
