@@ -12,7 +12,7 @@ const labels={
 let chart='annual',field='primary_representation',core=null,loadPromise=null,revision=0,origin=null,tab='numbers',selection=null,evidencePage=0;
 const fmt=n=>Number(n).toFixed(1),name=(f,k)=>labels[f]?.[k]||k;
 const metric=(p,f,k)=>core.metrics.find(r=>r[0]===core.enums.period_names.indexOf(p)&&r[1]===core.enums.fields.indexOf(f)&&r[2]===core.enums.labels[f].indexOf(k));
-const textSelection=()=>$('#statistics-denominator')?.textContent||'목록을 불러오는 중입니다.';
+const textSelection=()=>$('#statistics-denominator')?.textContent||'목록 불러오는 중';
 const basis=()=>$('#basis').selectedOptions[0]?.textContent||'';
 async function load(){if(!loadPromise)loadPromise=fetch('data/research-analysis-v1.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(d=>core=d).catch(e=>{loadPromise=null;throw e;});return loadPromise;}
 function animate(){
@@ -29,15 +29,15 @@ async function render(changed=false){
  const insight=$('#statistics-insight');if(chart==='sample')stage.before(insight);else stage.after(insight);
  if(chart==='sample'){
   $('#statistics-context').textContent='2019–21 / 2023–25 · 표본 각 60편 · 모집틀 287 / 688편 · AI 초록 분류';
-  $('#statistics-insight').textContent='조건부 표본의 판정 비율입니다. 미상도 포함하며 실제 기술 사용률·분야 전체 점유율이 아닙니다.';
-  stage.textContent='표본 분석을 불러오는 중입니다.';
+  $('#statistics-insight').textContent='조건부 표본 판정 비율 · 미상 포함 · 실제 사용률·분야 점유율 아님';
+  stage.textContent='표본 분석 불러오는 중';
   try{await load();if(request!==revision)return;stage.innerHTML=samplePlot();
-   $('#statistics-insight').textContent=field==='primary_representation'?'주표현 미상 41.7% → 29.9%. 보수적 95% 구간이 넓어 세대교체는 확정하지 않습니다. 확인 0건은 실제 미사용이 아닙니다.':'보수적 95% 구간이 넓어 과제 전환을 확정하지 않습니다. 미상도 분모에 포함합니다.';
-  }catch(e){if(request===revision)stage.textContent='분석을 불러오지 못했습니다. 잠시 후 다시 선택해 주세요.';}
+   $('#statistics-insight').textContent=field==='primary_representation'?'주표현 미상 41.7% → 29.9% · 넓은 95% 구간 · 세대교체 단정 불가 · 확인 0 ≠ 실제 미사용':'넓은 95% 구간 · 과제 전환 단정 불가 · 분모에 미상 포함';
+  }catch(e){if(request===revision)stage.textContent='분석 로딩 실패 · 다시 선택';}
  }else{
   stage.append(nodes[chart]);$('#statistics-context').textContent=textSelection();
   const selected=$('#statistics-selection').textContent;
-  const notes={annual:'2026년은 부분 연도이며, 10월 20일 수집분에 RealMe 한 편만 추가했습니다. 이 수집 목록만으로 분야 전체 성장·감소를 단정하지 않습니다.',category:'각 논문의 주분류 하나씩 집계합니다. 주제 분류와 실제 방법의 사용 비율은 다릅니다.',representation:'여러 표현의 언급을 중복 집계합니다. 미언급은 실제 미사용이 아니며, 셀을 누르면 수치를 확인합니다.'};
+  const notes={annual:'2026 부분 연도 · 10/20 수집 + RealMe 1편 · 분야 전체 증감 단정 불가',category:'논문당 주분류 1개 · 실제 방법 사용 비율과 별개',representation:'표현 언급 중복 집계 · 미언급 ≠ 미사용 · 셀 선택으로 수치 확인'};
   $('#statistics-insight').textContent=notes[chart]+(selected&&selected!=='검색어 없음'?' · '+selected:'');
  }
  adjustAxes();if(changed)animate();
@@ -58,35 +58,35 @@ function sampleRows(){
  return {rows:core.papers.filter(r=>core.period_years[p].includes(r[2])&&(li==null||r[6+fi]===li)),denominator:core.papers.filter(r=>core.period_years[p].includes(r[2])).length,f,p};
 }
 function sampleNumbers(){
- return `<p>모집틀 1,099편 · AI 초록 분류 140편. 가중 추정과 표본 확인 건수는 다른 값입니다.</p><div class="focus-detail-scroll"><table><thead><tr><th>시기</th><th>분류</th><th>추정</th><th>95% 구간</th><th>확인 / 표본</th></tr></thead><tbody>${core.metrics.filter(r=>[7,8].includes(r[0])&&r[1]===core.enums.fields.indexOf(field)).map(r=>{const p=core.enums.period_names[r[0]],k=core.enums.labels[field][r[2]];return `<tr><td>${p.replaceAll('_','–')}</td><td>${esc(name(field,k))}</td><td>${fmt(r[6])}%</td><td>${fmt(r[7])}–${fmt(r[8])}%</td><td><button data-focus-evidence="${k}" data-focus-period="${p}">${r[5]} / ${r[4]}편</button></td></tr>`;}).join('')}</tbody></table></div>`;
+ return `<p>모집틀 1,099편 · AI 초록 표본 140편 · 가중 추정 ≠ 확인 건수</p><div class="focus-detail-scroll"><table><thead><tr><th>시기</th><th>분류</th><th>추정</th><th>95% 구간</th><th>확인 / 표본</th></tr></thead><tbody>${core.metrics.filter(r=>[7,8].includes(r[0])&&r[1]===core.enums.fields.indexOf(field)).map(r=>{const p=core.enums.period_names[r[0]],k=core.enums.labels[field][r[2]];return `<tr><td>${p.replaceAll('_','–')}</td><td>${esc(name(field,k))}</td><td>${fmt(r[6])}%</td><td>${fmt(r[7])}–${fmt(r[8])}%</td><td><button data-focus-evidence="${k}" data-focus-period="${p}">${r[5]} / ${r[4]}편</button></td></tr>`;}).join('')}</tbody></table></div>`;
 }
 function sampleEvidence(){
  const {rows,denominator,f,p}=sampleRows(),pages=Math.max(1,Math.ceil(rows.length/12));evidencePage=Math.max(0,Math.min(pages-1,evidencePage));
- return `<p>${esc(p.replaceAll('_','–'))} · ${selection?.label?esc(name(f,selection.label)):'전체 범주'}: 확인 ${rows.length} / 표본 ${denominator}편. 모집틀 전부를 분류한 목록이 아닙니다.</p>${rows.length?rows.slice(evidencePage*12,evidencePage*12+12).map(r=>`<article class="focus-paper"><button data-detail="${esc(r[0])}">${esc(r[1])}</button><p>${r[2]} · ${esc(name(f,core.enums.labels[f][r[6+core.enums.fields.indexOf(f)]]))}</p><blockquote lang="en">${esc(r[14])}</blockquote><div class="focus-paper-links"><a href="${esc(r[11])}" target="_blank" rel="noopener">Paper</a><a href="${esc(r[12])}" target="_blank" rel="noopener">판정 근거</a></div></article>`).join(''):'<p>이 범주로 확인한 표본이 0편입니다. 실제 미사용을 뜻하지 않습니다.</p>'}<nav class="statistics-pagination"><button data-focus-page="-1" ${evidencePage===0?'disabled':''}>이전</button><span>${evidencePage+1} / ${pages}</span><button data-focus-page="1" ${evidencePage===pages-1?'disabled':''}>다음</button></nav>`;
+ return `<p>${esc(p.replaceAll('_','–'))} · ${selection?.label?esc(name(f,selection.label)):'전체 범주'}: 확인 ${rows.length} / 표본 ${denominator}편 · 모집틀 전수 분류 아님</p>${rows.length?rows.slice(evidencePage*12,evidencePage*12+12).map(r=>`<article class="focus-paper"><button data-detail="${esc(r[0])}">${esc(r[1])}</button><p>${r[2]} · ${esc(name(f,core.enums.labels[f][r[6+core.enums.fields.indexOf(f)]]))}</p><blockquote lang="en">${esc(r[14])}</blockquote><div class="focus-paper-links"><a href="${esc(r[11])}" target="_blank" rel="noopener">Paper</a></div></article>`).join(''):'<p>확인 0편 · 실제 미사용 근거 아님</p>'}<nav class="statistics-pagination"><button data-focus-page="-1" ${evidencePage===0?'disabled':''}>이전</button><span>${evidencePage+1} / ${pages}</span><button data-focus-page="1" ${evidencePage===pages-1?'disabled':''}>다음</button></nav>`;
 }
 function flatten(html){const t=document.createElement('div');t.innerHTML=html;for(const summary of t.querySelectorAll('summary')){const h=document.createElement('h4');h.textContent=summary.textContent;summary.replaceWith(h);}for(const details of [...t.querySelectorAll('details')].reverse()){const div=document.createElement('div');div.append(...details.childNodes);details.replaceWith(div);}return t.innerHTML;}
 function catalogNumbers(){
  const source=$('#'+({annual:'annual-chart-values',category:'category-chart-values',representation:'representation-chart-values'}[chart])),table=source?.querySelector('table');
  const heat=chart==='representation'?`<label for="focus-heat-choice">표현 선택</label><select id="focus-heat-choice">${$('#heat-representation').innerHTML}</select>`:'';
  const copy=table?.cloneNode(true);if(copy)for(const n of [copy,...copy.querySelectorAll('[id]')])n.removeAttribute('id');
- return `<p>${esc(textSelection())}</p>${heat}<div class="focus-detail-scroll">${copy?.outerHTML||'<p>집계를 불러오는 중입니다.</p>'}</div>`;
+ return `<p>${esc(textSelection())}</p>${heat}<div class="focus-detail-scroll">${copy?.outerHTML||'<p>집계 불러오는 중</p>'}</div>`;
 }
 function detailContent(){
  const body=$('#statistics-detail-content');if(!body)return;$('#statistics-detail-title').textContent=chart==='sample'?'초록 표본 분석':$('#statistics-chart').selectedOptions[0].textContent;
  for(const b of document.querySelectorAll('[data-focus-tab]'))b.setAttribute('aria-pressed',String(b.dataset.focusTab===tab));
  if(chart==='sample'){
-  if(!core){body.textContent='분석을 불러오는 중입니다.';return;}
+  if(!core){body.textContent='분석 불러오는 중';return;}
   if(tab==='numbers')body.innerHTML=sampleNumbers();
   if(tab==='evidence')body.innerHTML=sampleEvidence();
   if(tab==='method'){
    const method=$('#research-analysis-root .analysis-method');
-   body.innerHTML='<p>2019–2025년 조건부 모집틀 1,099편 / 확률표본 140편. 아래 내용은 현재 목록 집계와 별개입니다.</p>'+flatten(method?.innerHTML||'<p>AI 1회 초록 분류이며 사람 검증이 아닙니다. 미상도 분모에 포함합니다. exact/Bonferroni 95% 구간은 자료 누락·판독 오류를 포함하지 않습니다.</p>');
+   body.innerHTML='<p>2019–2025 조건부 모집틀 1,099편 / 확률표본 140편 · 현재 목록 집계와 별개</p>'+flatten(method?.innerHTML||'<p>AI 초록 1회 분류 · 사람 검증 아님 · 분모에 미상 포함 · exact/Bonferroni 95%는 누락·판독 오류 제외</p>');
    body.innerHTML+='<h3>초록 확보와 표본 범위</h3><div class="focus-detail-scroll"><table><thead><tr><th>연도</th><th>기존 목록</th><th>초록 확보</th><th>식별 보류</th><th>모집틀</th><th>표본</th></tr></thead><tbody>'+core.coverage_by_year.map(c=>`<tr><td>${c.year}</td><td>${c.all_reference}</td><td>${c.abstract_available}</td><td>${c.identity_excluded_with_abstract}</td><td>${c.eligible_population}</td><td>${c.sample_n}</td></tr>`).join('')+'</tbody></table></div>';
   }
  }else{
   if(tab==='numbers')body.innerHTML=catalogNumbers();
-  if(tab==='evidence')body.innerHTML=`<p>${esc(textSelection())}</p><p>선택한 검색어·주제·연도·날짜 기준을 유지한 논문 목록에서 개별 Paper 링크를 확인할 수 있습니다.</p><button id="focus-open-catalog">현재 조건의 논문 보기</button><p><a href="data/reader.json" target="_blank" rel="noopener">현재 논문 목록 JSON</a> · <a href="data/candidates.json" target="_blank" rel="noopener">검색 자료 전체 JSON</a></p>`;
-  if(tab==='method')body.innerHTML=`<p>현재 목록에서 선택한 문헌의 레코드 집계입니다. 제목·초록을 의미로 읽은 확률표본 분석과 분모가 다릅니다.</p><label for="focus-basis">날짜 기준</label><select id="focus-basis">${$('#basis').innerHTML}</select><p>날짜를 확인한 레코드만 연도별로 셉니다. 미확인 월·일을 임의로 채우지 않습니다. 2026은 부분 연도이며 RealMe 한 편만 선별 추가했습니다.</p><p>${esc($('#annual-note').textContent)}</p><p>주제는 주분류 하나씩, 표현은 여러 자동 추출 단서를 중복 집계합니다. 표현 언급은 주 방법·실제 사용률·방법의 우수성을 뜻하지 않습니다. 자료 누락과 관련성 미확인이 있어 분야 전체 성장으로 일반화하지 않습니다.</p><p><a href="about.html#statistics" target="_blank" rel="noopener">날짜와 집계 기준</a></p>`;
+  if(tab==='evidence')body.innerHTML=`<p>${esc(textSelection())}</p><p>현재 검색·필터·날짜 기준의 논문 목록 · 개별 Paper 링크</p><button id="focus-open-catalog">현재 조건의 논문 보기</button>`;
+  if(tab==='method')body.innerHTML=`<p>선택한 목록 레코드 집계 · 초록 확률표본 분석과 분모 별도</p><label for="focus-basis">날짜 기준</label><select id="focus-basis">${$('#basis').innerHTML}</select><p>날짜 확인 자료만 연도 집계 · 미확인 월·일 추정 없음 · 2026 부분 연도 · RealMe 1편 선별 추가</p><p>${esc($('#annual-note').textContent)}</p><p>주제: 주분류 1개 · 표현: 자동 추출 단서 중복 집계 · 표현 언급 ≠ 주 방법·실제 사용률·우수성 · 자료 누락·관련성 미확인 · 분야 전체 성장으로 일반화 불가</p>`;
  }
  if($('#focus-heat-choice'))$('#focus-heat-choice').value=$('#heat-representation').value;
  if($('#focus-basis'))$('#focus-basis').value=$('#basis').value;
