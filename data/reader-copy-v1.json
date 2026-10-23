@@ -1112,5 +1112,75 @@
       "limitations": null
     },
     "hideReviewStatus": true
+  },
+  "hr_c45358e60d7358": {
+    "summary": "색을 가진 3D 인체 정점 + 카메라 → RGB·깊이 투영 → 사진 같은 RGB 렌더링",
+    "fields": {
+      "purpose": "3D 인체 모델의 투영을 사진 같은 RGB 영상으로 변환",
+      "input": "색을 가진 3D 정점 + 카메라 매개변수",
+      "output": "사진 같은 RGB 영상",
+      "conditions": "논문: 색 정점 투영으로 RGB·깊이 입력 구성\n공개 재구현: 전체 메시 래스터화\n기존 Amazon 학습 데이터·코드 미포함",
+      "intermediates": "색 정점의 RGB·깊이 투영",
+      "optimization": "투영 입력 → 신경 이미지 변환 렌더러 → RGB 영상",
+      "evaluation": null,
+      "limitations": "논문과 공개 재구현의 입력 표현·학습 데이터 구분"
+    },
+    "hideReviewStatus": true
+  },
+  "hr_b45b9b497e48b1": {
+    "summary": "사진에서 추정한 몸 모델 + 암시적 표면 → 의복을 포함한 3D 인체 형상",
+    "fields": {
+      "purpose": "인체 모델의 구조 정보와 유연한 암시적 표면 복원 결합",
+      "input": "한 장의 RGB 사진\n추가 영상으로 확장 가능",
+      "output": "의복을 포함한 3D 표면",
+      "conditions": "사진에서 추정한 몸 모델 필요\n여러 영상 입력 확장은 별도 설정",
+      "intermediates": "추정 인체 매개변수 + 몸체 특징",
+      "optimization": "기준 몸 모델과 암시적 함수의 일치 최적화",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_a984e18d4966ef": {
+    "summary": "한 장의 사진 → 예측 3D 복셀 특징 + 픽셀 특징 → 의복 인체 메시",
+    "fields": {
+      "purpose": "3D 복셀·픽셀 특징 결합으로 전신 형상 보완",
+      "input": "한 장의 RGB 사진\n복셀 특징은 사진에서 추정하는 중간 표현",
+      "output": "의복 인체 3D 메시",
+      "conditions": null,
+      "intermediates": null,
+      "optimization": null,
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_fb784d0fc0d675": {
+    "summary": "한 장의 사진 → 기준 자세의 의복 형상·외형 복원 → 자세를 바꿀 수 있는 리깅 아바타",
+    "fields": {
+      "purpose": "의복 형상·외형과 자세 구동이 가능한 전신 아바타 복원",
+      "input": "한 장의 RGB 사진",
+      "output": "리깅된 의복 전신 아바타의 표면·외형",
+      "conditions": "매개변수 몸 추정기로 의미·기준 자세 공간과 변형장 구성",
+      "intermediates": "추정 몸 모델 + 기준 자세 의미 공간",
+      "optimization": null,
+      "evaluation": null,
+      "limitations": "기준 자세 공간의 점유 모호성\n후속 ARCH++가 지적한 문제"
+    },
+    "hideReviewStatus": true
+  },
+  "hr_eaff0282b73944": {
+    "summary": "한 장의 고해상도 사진 → 전신 문맥·세부 특징 결합 → 옷 주름을 포함한 인체 표면",
+    "fields": {
+      "purpose": "전신 문맥과 고해상도 단서로 의복 세부 기하 복원",
+      "input": "한 장의 고해상도 RGB 사진",
+      "output": "의복 인체의 세부 표면 기하",
+      "conditions": "전신의 거친 형상 분기 + 고해상도 세부 분기\n영상 데모의 추적 기능 없음",
+      "intermediates": null,
+      "optimization": "학습한 거친 형상·세부 분기의 추론\n후처리 없이 세부 기하 복원",
+      "evaluation": null,
+      "limitations": "영상 데모의 시간 추적 없음\n시간 일관성 보장 없음"
+    },
+    "hideReviewStatus": true
   }
 }
