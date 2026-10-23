@@ -1280,5 +1280,35 @@
       "limitations": null
     },
     "hideReviewStatus": true
+  },
+  "hr_b5158736b50f44": {
+    "summary": "한 장의 사진 → 몸·의복 Gaussian 분리 → 의복 변형·스키닝"
+  },
+  "hr_303482c8beecb7": {
+    "summary": "한 장의 사진 → 몸 메시·의복 기하 상호 보완 → 공동 3D 복원"
+  },
+  "hr_c970169f819d4c": {
+    "summary": "단안 사진 → 기하·텍스처 협력 → 의복 인체 복원"
+  },
+  "hr_c75b3650f2c53e": {
+    "summary": "사진 + 선택적 관절점·마스크 → MHR 기반 체형·자세 메시"
+  },
+  "hr_802cf8913c2645": {
+    "summary": "단안 영상 → 인체 프롬프트·CUT3R 온라인 순전파 → 세계 좌표 SMPL-X·장면·카메라"
+  },
+  "hr_6b586f6842b4c8": {
+    "summary": "소수의 비보정 사진 → 인체 정렬 점·법선·대응 → 의복 메시"
+  },
+  "hr_cedcfdb644aeb1": {
+    "summary": "인물 영상·SMPL → Gaussian·정점 이중 계층 그래프·시간 집계 → 새 시점·자세 아바타"
+  },
+  "hr_4054a83d7435d6": {
+    "summary": "포즈 주석 없는 사진 → 계층형 Point-Image Transformer → Gaussian 아바타·자세 렌더링"
+  },
+  "hr_2afab3e83f44bd": {
+    "summary": "사진·카메라·SMPL-X 포즈 → 신경 텍스처·Transformer → 새 시점·자세 이미지"
+  },
+  "hr_4d8c35b4903e95": {
+    "summary": "단안 영상 → 이전 프레임의 기하·특징 전파 → 인체 복원 가속"
   }
 }
