@@ -1,3 +1,15 @@
+WorldHMR visual-quality replacement
+
+Independent ImageGen explanation based on method facts in Hao-Jen Chien,Wei-Lun Chao,Yu-Lun Liu,A Diagnostic Study of World-Space Human Recovery Under High Camera Dynamics,arXiv2610.19729v2 sections5–6 and AppendixB.
+Source: https://arxiv.org/html/2610.19729v2
+Original key figures are linked only,not reproduced or embedded:
+Figure6 scale principle: https://arxiv.org/html/2610.19729v2#S5.F6
+Figure10 failures: https://arxiv.org/html/2610.19729v2#S7.F10
+The arXiv non-exclusive distribution license is not treated as third-party figure reuse permission. No paper video frame or original figure image was used in the generated illustration. Code and upstream models retain their separate non-commercial research conditions.
+
+Fictional educational RGB frames,parametric-like bodies,foot contacts and camera paths are not paper frames,actual SMPL-X predictions,benchmark measurements,ground-truth geometry or a geometrically calibrated reconstruction. Blue/teal denote performer identities,orange denotes false recovered world drift and navy the camera path. The same example scene appears before/after;the common scale adjusts camera displacement and world translations,not body dimensions. Only confidence/motion/rotation-gated stationary intervals contribute to the weighted least-squares estimate. If no interval qualifies,the source method skips correction. Subsequent optimization fits reprojection,time and inter-person constraints. Occluded depth,time-varying scale and weak camera displacement remain limitations;the existing EMDB-2 counter-result is preserved in the paper guide. No hair/texture/garment reconstruction is implied by the parametric-like surfaces.
+
+HISTORICAL ATTRIBUTION FOR RETIRED method.svg / method.webp ONLY (assets retained;no longer displayed):
 Independent explanatory diagram for this archive,2026-10-23. Source facts: Hao-Jen Chien,Wei-Lun Chao,Yu-Lun Liu,A Diagnostic Study of World-Space Human Recovery Under High Camera Dynamics,arXiv:2610.19729v2,sections5–6 and AppendixB, https://arxiv.org/html/2610.19729v2 .
 Original Figure6,Figure10,video frames,or source code are not reproduced. Coordinates4/6,scale1.5,and schematic bodies are hypothetical teaching examples,not reported measurements or ground truth. SVG source is included.
 The paper uses the arXiv non-exclusive distribution license. The official code and upstream models have separate non-commercial research restrictions. These conditions are not treated as general permission to republish original figures or code.
