@@ -1,0 +1,3 @@
+Independent explanatory diagram created by this archive from method facts in Giebenhain et al.,Pixel3DMM,arXiv2505.00615v1 section3. https://arxiv.org/html/2505.00615v1
+No original Figure2, third-party face image, scan or model prediction is reused. All face and mesh sketches are hypothetical explanatory geometry, not actual inputs,predictions or evaluation results.
+Paper CC BY4.0; official code CC BY-NC4.0; FLAME and preprocessing models have separate terms. Paper license is not applied to third-party source imagery or model assets.
