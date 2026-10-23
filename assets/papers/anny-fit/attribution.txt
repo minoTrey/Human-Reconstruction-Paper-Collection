@@ -1,3 +1,10 @@
+CURRENT DISPLAY ASSET: summary-adult-short.png (1536 x 1024)
+Follow-up ImageGen text edit of this archive's existing adult-only explanatory illustration summary-adult.png. No original author figure was used. The prior image remains available unchanged;the figure replacement queue remains12/12,not13/12.
+The same two adults,complete clothing,opaque covered models,room,inputs and staged Anny fitting remain the visual subject. This is not a new experimental scene,age cohort,paper result or all-age validation. The image is explanatory,not an executed model prediction. No exact pixel identity outside text is asserted;visual identity,pose,clothing,model coverage and method structure were inspected.
+Shortened regions:VLM caveat,opaque-cover/output caveat,adult-only/results disclaimer,stage-dependent-loss/demo-weight caveat,and separate pseudo-GT retraining caveat. The final demo depth-order weight0 remains scoped to the demo's last stage. VLM supplies a shape prior,not verified age/identity. Opaque covers are display devices;actual output is Anny body shape,not clothes/texture. Image-specific fitting and separate pseudo-GT retraining are not merged.
+Source method attribution and the original source's separate rights remain in the historical record below. This edit does not introduce any original-paper image reuse or new license assumption.
+
+PREVIOUS ATTRIBUTION AND PROVENANCE (retained verbatim):
 CURRENT DISPLAY ASSET: summary-adult.png (1536 x 1024)
 Independent ImageGen explanation, generated earlier and reused unchanged from the preserved adult-only safe alternative. It is not the original paper Figure 3 or a reproduction of paper photographs/code.
 Method facts: Laura Bravo-Sánchez et al., Anny-Fit: All-Age Human Mesh Recovery, arXiv:2605.04728v1, sections 3 and 7.4; https://arxiv.org/html/2605.04728v1 . Official demo configuration b03ec1920e3ad16828a40940338b401387e9d631.
