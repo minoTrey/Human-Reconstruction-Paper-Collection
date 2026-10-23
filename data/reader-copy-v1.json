@@ -1042,5 +1042,75 @@
       "limitations": null
     },
     "hideReviewStatus": true
+  },
+  "hr_253acc89a9d774": {
+    "summary": "한 사람의 단안 영상 → 사람별 신경장·움직임 학습 → 영상 속 동작의 새 시점 렌더링",
+    "fields": {
+      "purpose": "영상 속 인물·동작을 다른 카메라 시점에서 렌더링",
+      "input": "한 사람의 단안 RGB 영상",
+      "output": "사람별 기준 자세 방사장 + 새 시점 RGB 영상",
+      "conditions": "인물 마스크·프레임별 SMPL 자세/체형·카메라 내외부 매개변수\n영상에서 추정 가능한 전처리 정보",
+      "intermediates": "기준 T자 자세 방사장 + 골격·비강체 역방향 변형장",
+      "optimization": "사람·영상별 기준 자세 볼륨과 변형장 최적화",
+      "evaluation": "ZJU-MoCap의 한 카메라 입력\nYouTube·직접 촬영 영상",
+      "limitations": "클립 전반에 대부분의 몸 부위가 보이는 영상 권장\n범용 단일 순전파 대신 사람별 학습 필요"
+    },
+    "hideReviewStatus": true
+  },
+  "hr_ddfa2668bf645e": {
+    "summary": "몸 모델·앞뒤 법선 반복 보정 → 다양한 자세의 의복 인체 표면",
+    "fields": {
+      "purpose": "몸 모델과 의복 법선의 반복 보정으로 인체 표면 복원",
+      "input": "배경에서 분리한 인물 RGB 사진",
+      "output": "사진별 의복 인체 표면\n여러 프레임·SCANimate를 이용한 아바타화는 별도 응용",
+      "conditions": "추정 SMPL(-X) + 인물 분할\n단일 사진 복원과 다중 프레임 아바타 응용 구분",
+      "intermediates": "추정 몸체 + 앞뒤 표면 법선",
+      "optimization": "SMPL(-X) 몸 모델과 법선의 교대 반복 보정",
+      "evaluation": "AGORA·CAPE 평가",
+      "limitations": "초기 몸 추정 오차가 복원 표면을 잘못 유도할 수 있음\n반복 보정으로 완화"
+    },
+    "hideReviewStatus": true
+  },
+  "hr_227025e79f0493": {
+    "summary": "자세·기준 공간의 일관성 공동 학습 → 구동 가능한 의복 아바타의 기하·텍스처",
+    "fields": {
+      "purpose": "자세 공간과 기준 공간의 일관성으로 아바타 기하·외형 개선",
+      "input": "인물 사진 + 기저 인체 모델의 기하 정보",
+      "output": "현재 자세·기준 자세의 의복 아바타 기하·텍스처",
+      "conditions": "기저 인체 모델 + 자세·기준 공간의 점유 정보",
+      "intermediates": null,
+      "optimization": null,
+      "evaluation": null,
+      "limitations": "스키닝 기반 변형과 의복 물리 시뮬레이션 구분"
+    },
+    "hideReviewStatus": true
+  },
+  "hr_9e5bfe686f8f79": {
+    "summary": "정렬된 좌우 사진 → 스테레오 깊이 단서 → 카메라 공간의 의복 인체 표면·위치",
+    "fields": {
+      "purpose": "좌우 영상의 깊이 단서로 인체 표면과 위치 복원",
+      "input": "정렬된 좌우 스테레오 RGB 사진 한 쌍",
+      "output": "카메라 공간의 의복 인체 표면",
+      "conditions": "정렬된 스테레오 쌍 필요\n임의의 비보정 다중 시점 입력과 구분",
+      "intermediates": "스테레오 추정 깊이 + 복셀 특징",
+      "optimization": null,
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_3e20005b38e6d1": {
+    "summary": "희소 다중 카메라 영상 + 변형 몸 메시의 공유 잠재 코드 → 동적 인체의 새 시점 영상",
+    "fields": {
+      "purpose": "프레임 간 메시 잠재 코드 공유로 희소 관측의 새 시점 영상 생성",
+      "input": "희소 다중 카메라 영상\n별도 단안 People-Snapshot 실험",
+      "output": "동적 인체의 새 시점 RGB 영상",
+      "conditions": "변형 메시의 잠재 코드와 프레임 관측 통합\n희소 다중 시점 설정과 단안 실험 구분",
+      "intermediates": null,
+      "optimization": null,
+      "evaluation": "ZJU-MoCap 평가\n단안 People-Snapshot 시연은 별도",
+      "limitations": null
+    },
+    "hideReviewStatus": true
   }
 }
