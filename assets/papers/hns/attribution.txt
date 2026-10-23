@@ -1,0 +1,2 @@
+Independent explanatory diagram created by this archive from method facts in Luo, Ren, Yang and Zhang, arXiv2610.17671v1, sections2.2–2.8. Source: https://arxiv.org/html/2610.17671v1
+The paper uses arXiv non-exclusive distribution, not a general figure reuse license. No original figure, participant scan, photograph, code or anatomical skeleton was copied. All surfaces, vertices and shape-axis sketches are hypothetical explanations, not empirical results.
