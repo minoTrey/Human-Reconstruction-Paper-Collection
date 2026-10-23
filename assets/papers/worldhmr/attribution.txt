@@ -1,3 +1,8 @@
+CURRENT DISPLAY ASSET: summary-short.png (1536 x 1024)
+Follow-up ImageGen edit of this archive's independent WorldHMR summary.png. Only two footer blocks shortened: selected stationary-foot intervals;occluded depth and within-clip changing scale remain unresolved. Prior PNG retained. This is text cleanup after12/12 replacements,not a new replacement.
+The same illustrative adults,body surfaces,false world drift,camera trajectory and stationary-foot inset retain their explanatory meaning. No exact pixel identity is asserted. No new scene,number,performance claim or actual experiment is added. Original author artwork is not used or altered.
+
+PREVIOUS ATTRIBUTION AND PROVENANCE (retained verbatim):
 WorldHMR visual-quality replacement
 
 Independent ImageGen explanation based on method facts in Hao-Jen Chien,Wei-Lun Chao,Yu-Lun Liu,A Diagnostic Study of World-Space Human Recovery Under High Camera Dynamics,arXiv2610.19729v2 sections5–6 and AppendixB.
