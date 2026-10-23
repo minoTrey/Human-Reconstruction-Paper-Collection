@@ -1,2 +1,14 @@
+HNS visual-quality replacement
+
+Independent ImageGen explanation based on method facts in Jinbo Luo,Hang Ren,Yadie Yang,Jie Zhang,Integrating3DPostureNeutralizationwithStatisticalShapeModelingforHead-Neck-ShoulderErgonomicDesign,arXiv2610.17671v1 section2.
+Source: https://arxiv.org/html/2610.17671v1
+Original key figures are linked only,not reproduced or embedded:
+Figure2 pipeline: https://arxiv.org/html/2610.17671v1#S1.F2
+Figure6 posture neutralization: https://arxiv.org/html/2610.17671v1#S2.F6
+The arXiv non-exclusive distribution license is not treated as third-party figure reuse permission. No participant scan or original figure image was used in the generated illustration. The scanning-cap depiction follows section2.2;population modes are generic illustrative variations,not measured PC1/PC2 effects.
+
+The illustrated person,surfaces,selected markers and population modes are fictional educational examples,not measured scans,exact73point placements,actual PCA modes or study results. HACK estimates neck posture;8model rotations are not a claim to8measured biological vertebrae. Neutralization resets a common model reference pose;not treatment,medical-normality or product-fit validation. Registration and per-vertex transforms preserve scan detail,shoulders rejoin,and GPA preserves physical size before population PCA.Study scope200Chineseadults,one scan/person.
+
+HISTORICAL ATTRIBUTION FOR RETIRED method.svg / method.webp ONLY (assets retained;no longer displayed):
 Independent explanatory diagram created by this archive from method facts in Luo, Ren, Yang and Zhang, arXiv2610.17671v1, sections2.2–2.8. Source: https://arxiv.org/html/2610.17671v1
 The paper uses arXiv non-exclusive distribution, not a general figure reuse license. No original figure, participant scan, photograph, code or anatomical skeleton was copied. All surfaces, vertices and shape-axis sketches are hypothetical explanations, not empirical results.
