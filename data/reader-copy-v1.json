@@ -1252,5 +1252,33 @@
       "limitations": null
     },
     "hideReviewStatus": true
+  },
+  "hr_e701cdfda93d95": {
+    "summary": "체형·관절 자세 매개변수 → 일관된 구조의 스키닝 가능한 인체 메시",
+    "fields": {
+      "purpose": "체형과 관절 자세를 조절하는 기본 인체 표면 모델",
+      "input": "체형·자세 매개변수\n사진에서 매개변수를 추정하는 방법은 별도",
+      "output": "스키닝 가능한 인체 표면 메시",
+      "conditions": "학습용 3D 스캔과 모델 실행 입력 구분\n사진 기반 추정기는 별도 방법",
+      "intermediates": null,
+      "optimization": "체형·자세 매개변수로 몸 모델 계산",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_24bffe39111b13": {
+    "summary": "체형·자세 변형을 나눠 학습한 인체 모델 + 부분 스캔·움직임 표식의 표면 완성 응용",
+    "fields": {
+      "purpose": "체형·자세 변형 분리 학습 + 부분 관측에서 인체 표면 완성",
+      "input": "모델: 체형·관절 각도\n별도 피팅 응용: 부분 3D 스캔·움직임 표식",
+      "output": "자세에 따라 변형하는 인체 표면 메시",
+      "conditions": "학습용 등록 스캔과 실행 매개변수 구분\n사진 기반 추정 시스템과 구분",
+      "intermediates": null,
+      "optimization": "매개변수로 몸 모델 계산\n부분 관측에 맞추는 피팅은 별도 응용",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
   }
 }
