@@ -1,0 +1,7 @@
+Xiaozhen Qiao et al., AHAP: Reconstructing Arbitrary Humans from Arbitrary Perspectives with Geometric Priors, arXiv2602.23951v2, Figure2 (2026).
+Source: https://arxiv.org/html/2602.23951v2#S1.F2
+PDF: https://arxiv.org/pdf/2602.23951v2 , physical page3.
+Paper license: Creative Commons Attribution4.0 International, https://creativecommons.org/licenses/by/4.0/ . Verified on arXiv v2 HTML and abstract license link.
+Modification: Figure2 artwork extracted from PDF page3 only, at300dpi crop[x225,y275,width2038,height1063]. Original caption and surrounding body text excluded; original artwork not translated, redrawn or composited. Lossless WebP conversion. Korean surrounding explanation is by this archive.
+The separate project website CC BY-SA4.0 license is not substituted for the paper figure license.
+Checked2026-10-23UTC.
