@@ -1310,5 +1310,35 @@
   },
   "hr_4d8c35b4903e95": {
     "summary": "단안 영상 → 이전 프레임의 기하·특징 전파 → 인체 복원 가속"
+  },
+  "hr_09c5f1fbdcc685": {
+    "summary": "한 장의 사진 → 몸·의복을 분리한 3D 기하 복원"
+  },
+  "hr_b81fa39001a181": {
+    "summary": "가려진 사진 → 생성 다중 시점 → 의복 인체 Gaussians"
+  },
+  "hr_628e955c44888d": {
+    "summary": "사진 한 장·인체 위치 → Transformer·머리 다중 해상도 특징 → Gaussian 아바타 순전파"
+  },
+  "hr_2626dffd7566b7": {
+    "summary": "한 장의 사진 → 다단계 기하 학습 → 텍스처를 갖춘 의복 인체 메시"
+  },
+  "hr_d9c0c9f7cbfa6f": {
+    "summary": "보정된 희소 다중 시점 → 깊이·픽셀 Gaussian·에피폴라 어텐션 → 인체·장면 새 시점 렌더링"
+  },
+  "hr_dd76a9a158d8a6": {
+    "summary": "한 장의 사진 → 전신·얼굴의 생성 다중 뷰·재메시화 → 텍스처 인체 메시"
+  },
+  "hr_634217331e124a": {
+    "summary": "한 장의 사진 → 다중 뷰 이미지 확산·3D Gaussian 확산 연계 → 인체 Gaussians"
+  },
+  "hr_ac31f1a990af81": {
+    "summary": "한 장의 사진 → ControlNet 생성 뒷면·SMPL-X 사전 정보 → Gaussian 복원·정제"
+  },
+  "hr_8bde71b99dce9a": {
+    "summary": "복원 표면·SMPL-X → 의미 대응 기반 샘플링·완성·정제 → 텍스처 메시"
+  },
+  "hr_6d468e3bb8f632": {
+    "summary": "한 장의 사진 → 불확실성 분포·점유 보정 → 의복 인체 표면 세부"
   }
 }
