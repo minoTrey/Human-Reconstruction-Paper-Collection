@@ -1,0 +1,5 @@
+Anny-Fit method explanation — independently drawn for this archive, 2026-10-23.
+Source facts: Laura Bravo-Sánchez et al., Anny-Fit: All-Age Human Mesh Recovery, arXiv:2605.04728v1, sections 3 and 7.4, https://arxiv.org/html/2605.04728v1 .
+Official demo configuration checked at commit b03ec1920e3ad16828a40940338b401387e9d631: https://github.com/naver/anny-fit/blob/b03ec1920e3ad16828a40940338b401387e9d631/annyfit/configs/demo/multihmr.yaml .
+The diagram is an original explanatory illustration. No original Figure 3, photograph, or source code is reproduced. Mesh sketches illustrate parameter changes; they are not reported reconstructions, measurements, or real age/identity classifications. SVG source is included.
+The paper uses the arXiv non-exclusive distribution license; the implementation uses the NAVER NonCommercial License. Neither is treated as a general permission to republish original figures or code.
