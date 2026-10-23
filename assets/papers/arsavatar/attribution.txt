@@ -1,3 +1,10 @@
+CURRENT DISPLAY ASSET: summary-short.png (1536 x 1024)
+Follow-up ImageGen text edit of this archive's existing independent ARS-Avatar summary.png. One edit shortens two lower-right SSAO text blocks. The prior PNG remains unchanged. This is caption cleanup after12/12 figure replacements,not a new paper,scene,performance claim or13th replacement.
+The same adult,capture views,template/position-map priors,surface-aligned Gaussian surfels,material maps,HDR relighting and SSAO radius illustrations remain. No exact pixel identity outside text is asserted;visual structure,identity,pose and method meaning were inspected.
+The new concise text keeps geometry maps fixed only along the SSAO finite-difference gradient path,not necessarily across all model training. SSAO learns radius offsets and approximates local occlusion;it is not ray-traced ground truth or full light transport. The finite-difference banner,nine body-part radii and prior optimization/metallic assumptions remain in the illustration. The generated example is not a paper prediction or experiment.
+No original author figure was used or altered. Original source rights and this archive's earlier attribution remain below verbatim;no license for source paper artwork is inferred.
+
+PREVIOUS ATTRIBUTION AND PROVENANCE (retained verbatim):
 ARS-Avatar visual-quality replacement
 
 Independent ImageGen explanation based on method facts in Jiateng Liu et al.,ARS-Avatar:Animatable and Relightable Surfel Avatars with Learnable Ambient Occlusion,arXiv2609.27600v3 sections3,7,10.
