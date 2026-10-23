@@ -1,3 +1,14 @@
+Pixel3DMM visual-quality replacement
+
+Original Figure 2: Simon Giebenhain, Tobias Kirschstein, Martin Rünz, Lourdes Agapito, Matthias Nießner. Pixel3DMM: Versatile Screen-Space Priors for Single-Image 3D Face Reconstruction, arXiv2505.00615v1 (2025).
+Source: https://arxiv.org/html/2505.00615v1#S1.F2
+Image: https://arxiv.org/html/2505.00615v1/pixel3dmm_method.png
+License: https://creativecommons.org/licenses/by/4.0/
+Whole original PNG, unchanged; no crop, translation or recomposition. Attribution retained. No separate third-party exception identified in figure/caption. No endorsement implied. Paper figure license is separate from code CC BY-NC4.0 and separately licensed FLAME/preprocessing models.
+
+Summary: original ImageGen educational illustration based on section3. Fictional face,normal/UV maps and mesh are illustrative, not actual predictions or experimental evidence. The mesh is not exact FLAME topology. RGB normal colours indicate surface orientation in FLAME coordinates; UV colours identify surface correspondence, not texture. Only prior prediction is feed-forward; final reconstruction uses test-time model/camera fitting. No hair or skin-texture reconstruction.
+
+HISTORICAL ATTRIBUTION FOR RETIRED method.svg / method.webp ONLY (assets retained; no longer displayed):
 Independent explanatory diagram created by this archive from method facts in Giebenhain et al.,Pixel3DMM,arXiv2505.00615v1 section3. https://arxiv.org/html/2505.00615v1
 No original Figure2, third-party face image, scan or model prediction is reused. All face and mesh sketches are hypothetical explanatory geometry, not actual inputs,predictions or evaluation results.
 Paper CC BY4.0; official code CC BY-NC4.0; FLAME and preprocessing models have separate terms. Paper license is not applied to third-party source imagery or model assets.
