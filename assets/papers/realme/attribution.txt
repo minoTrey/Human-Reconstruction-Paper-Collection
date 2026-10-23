@@ -1,0 +1,5 @@
+Chenxu Zhou, Zhiyuan Yu, Yudong Jin, Yinji Shentu, Yu Zhang, Jiaming Sun, Xiaowei Zhou. RealMe: Immersive Volumetric Video from Minimal Captures. Figure2,arXiv2610.30023v1,2026.
+Source: https://arxiv.org/html/2610.30023v1/pipeline_v2.png
+Paper: https://arxiv.org/html/2610.30023v1#S2.F2
+License: Creative Commons Attribution-ShareAlike4.0, https://creativecommons.org/licenses/by-sa/4.0/ . The arXiv v1 article license is the basis for this unchanged figure reproduction; repository PRLv1.0 is separate.
+Modifications: full original PNG converted losslessly to WebP. No crop, translation, overlay, or redraw. Decoded RGBA pixels are identical. This reproduced image remains available under CC BY-SA4.0; site code and other assets have their own conditions.

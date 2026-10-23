@@ -10,6 +10,6 @@ globalThis.ArchiveModel=(()=>{
   const group=(precision[x.precision]??3)-(precision[y.precision]??3);if(group)return group;
   return sign*x.value.localeCompare(y.value)||a.t.localeCompare(b.t);
  }
- const resourceLabel=l=>l.kind==='code'?'GitHub':l.kind==='project'?'Project':l.kind==='huggingface'?({model:'HF Model',dataset:'HF Dataset',demo:'HF Demo'}[l.role]||'Hugging Face'):'Paper';
+ const resourceLabel=l=>l.kind==='code'?(l.state==='repository_only'?'GitHub · 구현 미공개':'GitHub'):l.kind==='project'?'Project':l.kind==='huggingface'?({model:'HF Model',dataset:'HF Dataset',demo:'HF Demo'}[l.role]||'Hugging Face'):'Paper';
  return {dateOf,compareDates,resourceLabel};
 })();
