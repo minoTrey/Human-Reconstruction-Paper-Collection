@@ -972,5 +972,75 @@
       "limitations": null
     },
     "hideReviewStatus": true
+  },
+  "hr_33166c96bf8108": {
+    "summary": "한 장의 사진 + 자동 생성 설명·개인화 확산 모델 → 의복 인체의 기하·텍스처 최적화",
+    "fields": {
+      "purpose": "관측 사진과 생성 사전 정보로 미관측 인체의 기하·색 복원",
+      "input": "한 장의 RGB 사진\n의복 설명은 VQA·의복 분할로 자동 생성",
+      "output": "상세 의복 인체 기하 + 텍스처",
+      "conditions": "자동 생성 설명 + 개인화 텍스트→이미지 확산 모델",
+      "intermediates": "자동 텍스트 프롬프트·확산 사전 정보·DMTet 표현",
+      "optimization": "다중 시점 SDS + 관측 사진 재구성 손실\n기하·텍스처 최적화",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_922eea889deb5b": {
+    "summary": "단안 영상 → 사람·물체·배경 분리 모델링 → 상호작용 장면의 새 시점 영상",
+    "fields": {
+      "purpose": "사람·물체·배경을 나눈 상호작용 장면 복원",
+      "input": "단안 RGB 영상",
+      "output": "동적 사람·물체와 배경의 새 시점 영상",
+      "conditions": null,
+      "intermediates": "물체 뼈 구조 + 물체 상태 임베딩",
+      "optimization": null,
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_333a0da691071b": {
+    "summary": "단안 영상에 맞춘 사람별 신경장 학습 가속 → 새 자세·시점의 아바타 렌더링",
+    "fields": {
+      "purpose": "사람별 아바타 학습 가속 + 새 자세·시점 렌더링",
+      "input": "단안 RGB 영상",
+      "output": "구동 가능한 신경 아바타 + 렌더링 영상",
+      "conditions": null,
+      "intermediates": null,
+      "optimization": "입력 영상에 맞춘 사람별 신경장 학습·최적화",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_ff8ebb3df6a7e3": {
+    "summary": "한 장의 사진 → 앞뒤 법선 적분·표면 완성 → 닫힌 의복 인체 메시",
+    "fields": {
+      "purpose": "몸 모델을 기준으로 표면 조각을 연결한 의복 메시 복원",
+      "input": "한 장의 RGB 사진",
+      "output": "틈 없이 닫힌 의복 인체 표면 메시",
+      "conditions": "추정 SMPL-X 필요\n얼굴·손을 몸 모델로 대체하는 선택 기능",
+      "intermediates": "앞뒤 예측 법선 → 2.5D 표면 → 미관측 영역 완성",
+      "optimization": "d-BiNI 법선 적분 최적화 → IF-Nets+ 완성 → Poisson 결합\n단일 순전파 뒤 법선 적분·메시 처리 필요",
+      "evaluation": "CAPE·Renderpeople + 지각 평가\n비교법 간 학습 조건 차이 고려",
+      "limitations": "미관측 면은 완성 모델의 추정\n얼굴·손 대체 결과와 관측 세부 구분"
+    },
+    "hideReviewStatus": true
+  },
+  "hr_18e8c100f6ab59": {
+    "summary": "한 장의 사진 → 예측 깊이·인체 분할로 PIFuHD 보완 → 의복 인체 메시",
+    "fields": {
+      "purpose": "예측 깊이·인체 분할로 몸 구조와 표면 보완",
+      "input": "한 장의 RGB 사진\n깊이·인체 분할은 내부 예측 단서",
+      "output": "의복 인체 메시",
+      "conditions": null,
+      "intermediates": "영상에서 예측한 깊이 + 인체 분할\n외부 깊이 센서 입력 아님",
+      "optimization": null,
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
   }
 }
