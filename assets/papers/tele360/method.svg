@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#3e6587"/></marker></defs><style>text{font-family:Malgun Gothic,Segoe UI,sans-serif;fill:#17364d}.title{font-size:38px;font-weight:700}.section{font-size:29px;font-weight:700}.heading{font-size:28px;font-weight:700}.body{font-size:25px}.note{font-size:23px;fill:#50677a}.flow{fill:none;stroke:#3e6587;stroke-width:4;marker-end:url(#arrow)}</style><rect width="1600" height="900" fill="#f8fafc"/>
+<text x="55" y="65" class="title">Tele360 · v1 설명 도식</text>
+<text x="55" y="105" class="note">unposed = 사전 카메라 보정 선택 사항 · 입력 프레임은 동기화해야 합니다.</text>
+<text x="55" y="162" class="section">매 시점의 다중뷰 재구성</text>
+<rect x="55" y="187" width="440" height="218" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="78" y="231" class="heading">동기화된 4–6뷰 관측</text>
+<text x="78" y="274" class="body">2K RGB 프레임</text>
+<text x="78" y="314" class="body">RVM 전경 마스크</text>
+<text x="78" y="354" class="body">GT 기하는 실행 필수 입력 아님</text>
+<path d="M507 296 h47" class="flow"/>
+<rect x="575" y="187" width="440" height="218" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="598" y="231" class="heading">혼합 특징 · 희소 토큰</text>
+<text x="598" y="274" class="body">저해상도 DINO + 고해상도 CNN</text>
+<text x="598" y="314" class="body">전경 토큰 + scene token</text>
+<text x="598" y="354" class="body">희소 transformer decoder</text>
+<path d="M1027 296 h47" class="flow"/>
+<rect x="1095" y="187" width="440" height="218" rx="17" fill="#e8f1f9" stroke="#b6c9d9" stroke-width="2"/>
+<text x="1118" y="231" class="heading">프레임별 독립 예측</text>
+<text x="1118" y="274" class="body">깊이 · Gaussian 속성</text>
+<text x="1118" y="314" class="body">카메라 전용 LM 정제 4회</text>
+<text x="1118" y="354" class="body">깊이를 3D 위치로 변환</text>
+<text x="55" y="481" class="section">Gaussian maps 전송과 원격 표시</text>
+<rect x="55" y="507" width="440" height="218" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="78" y="551" class="heading">1K Gaussian maps</text>
+<text x="78" y="594" class="body">3D 위치 · 외관 · 불투명도</text>
+<text x="78" y="634" class="body">크기 · 회전</text>
+<text x="78" y="674" class="body">뷰별 카메라 회전 · 이동 · FOV</text>
+<path d="M507 616 h47" class="flow"/>
+<rect x="575" y="507" width="440" height="218" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="598" y="551" class="heading">영상 코덱으로 전송</text>
+<text x="598" y="594" class="body">맵을 2D 캔버스에 배치</text>
+<text x="598" y="634" class="body">H.265 인코딩</text>
+<text x="598" y="674" class="body">WebRTC 스트리밍</text>
+<path d="M1027 616 h47" class="flow"/>
+<rect x="1095" y="507" width="440" height="218" rx="17" fill="#e8f1f9" stroke="#b6c9d9" stroke-width="2"/>
+<text x="1118" y="551" class="heading">수신기 자유시점 렌더링</text>
+<text x="1118" y="594" class="body">Gaussian maps 디코딩</text>
+<text x="1118" y="634" class="body">3D Gaussians로 구성</text>
+<text x="1118" y="674" class="body">사용자가 정한 시점에서 표시</text>
+<rect x="55" y="757" width="1480" height="70" rx="13" fill="#fff1dc"/>
+<text x="77" y="783" class="note">RTX 5090 · 6뷰 2K: 모델 추론 35.36ms (캡처·전송·표시 제외)</text><text x="77" y="812" class="note">동작→화면 지연: MacBook Pro 약 500ms · iPad Pro 약 650ms</text>
+<text x="55" y="862" class="note">논문 v1 §3–5의 방법을 바탕으로 재구성 · 원문 그림·사진 미사용</text>
+</svg>

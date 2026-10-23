@@ -1,0 +1,6 @@
+Tele360 v1 — independently authored explanatory diagram
+Method source: https://arxiv.org/html/2609.15032v1#S3 ; Sections3–5.
+New SVG boxes/arrows/Korean labels distinguish synchronized observations, network/camera refinement, Gaussian maps, codec transmission and endpoint display. No original figure, photo or layout reused. This is not author Figure2.
+The arXiv perpetual non-exclusive license is not treated as general figure-republication permission.
+method.svg is the authored source; method.webp is its lossless rendered display. No blanket license for original paper/project material is granted.
+Checked 2026-10-23 UTC.
