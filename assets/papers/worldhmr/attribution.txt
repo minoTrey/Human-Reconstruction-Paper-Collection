@@ -1,0 +1,3 @@
+Independent explanatory diagram for this archive,2026-10-23. Source facts: Hao-Jen Chien,Wei-Lun Chao,Yu-Lun Liu,A Diagnostic Study of World-Space Human Recovery Under High Camera Dynamics,arXiv:2610.19729v2,sections5–6 and AppendixB, https://arxiv.org/html/2610.19729v2 .
+Original Figure6,Figure10,video frames,or source code are not reproduced. Coordinates4/6,scale1.5,and schematic bodies are hypothetical teaching examples,not reported measurements or ground truth. SVG source is included.
+The paper uses the arXiv non-exclusive distribution license. The official code and upstream models have separate non-commercial research restrictions. These conditions are not treated as general permission to republish original figures or code.
