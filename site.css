@@ -38,3 +38,6 @@ footer{border-top:1px solid var(--rule);padding-top:25px;padding-bottom:30px;dis
 
 /* Paper content stays visible;filter widgets and image viewer keep their controls. */
 .brief-conditions h3,.bibliography-table>h3,.method-extra>h3{font-size:14px;margin:18px 0 7px}.brief-conditions p{margin:0 0 16px;line-height:1.8}.reader-summary{line-height:1.7}.paper-actions>.paper-tags{position:static;flex-basis:100%;margin-top:2px}.paper-figure figcaption>span+span{font-size:11px}.bibliography-table{margin-bottom:20px}
+
+/* Keep wrapped title text clear of the sticky close control while scrolling. */
+#detail-title{padding-inline-end:56px;overflow-wrap:anywhere}
