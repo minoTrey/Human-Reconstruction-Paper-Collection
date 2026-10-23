@@ -902,5 +902,75 @@
       "limitations": null
     },
     "hideReviewStatus": true
+  },
+  "hr_0986b5ae3be3be": {
+    "summary": "RGB 영상 시퀀스 → 움직임·Gaussian 외형 공동 최적화 → 자세 조건 아바타",
+    "fields": {
+      "purpose": "한 영상의 움직임·외형을 함께 맞춘 Gaussian 아바타 복원",
+      "input": "단일 RGB 영상 시퀀스",
+      "output": "자세에 따라 외형이 변하는 Gaussian 아바타",
+      "conditions": null,
+      "intermediates": null,
+      "optimization": "움직임·Gaussian 외형 공동 최적화",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_23293ca204c78a": {
+    "summary": "단안 영상 → 사람·정적 장면 분리 → Gaussian 아바타·장면 공동 복원",
+    "fields": {
+      "purpose": "움직이는 사람과 정적 장면의 분리·공동 복원",
+      "input": "단안 RGB 영상\n50–100프레임 사용 설정",
+      "output": "구동 가능한 인체 + 정적 장면의 3D Gaussians",
+      "conditions": "SMPL로 인체 Gaussians 초기화\n인체와 정적 장면 분리",
+      "intermediates": null,
+      "optimization": "사람·장면 Gaussians와 스키닝 가중치 공동 최적화",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_b4e90d0c14b7b8": {
+    "summary": "한 장의 사진 + 확산 모델의 생성 뒷모습 → 전신 텍스처 메시",
+    "fields": {
+      "purpose": "관측 사진과 생성 뒷모습을 결합한 텍스처 메시 복원",
+      "input": "한 장의 RGB 사진",
+      "output": "전신 텍스처 메시",
+      "conditions": "스키닝 몸 메시의 기하 가이드",
+      "intermediates": "확산 모델의 생성 뒷모습\n두 번째 실측 카메라 관측 아님",
+      "optimization": null,
+      "evaluation": null,
+      "limitations": "보이지 않은 뒷면은 생성 사전 정보의 추정\n그럴듯함과 실측 정확도 구분"
+    },
+    "hideReviewStatus": true
+  },
+  "hr_49f21e4aa284dd": {
+    "summary": "카테고리 몸 템플릿 + 학습 잠재 뼈 → 단안 영상의 관절형 Gaussian 템플릿",
+    "fields": {
+      "purpose": "몸 템플릿·추가 잠재 뼈로 변형 대상을 Gaussian 표현",
+      "input": "단안 RGB 영상",
+      "output": "새 자세 렌더링이 가능한 관절형 Gaussian 템플릿",
+      "conditions": "SMPL·SMAL 등 카테고리 템플릿\n학습 스키닝 사용",
+      "intermediates": null,
+      "optimization": "단안 영상에 맞춘 미분 렌더링 템플릿 최적화",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_e360010f7920c5": {
+    "summary": "사진의 관측 색 → 부분 UV 텍스처 → 미관측 영역을 채운 전신 텍스처",
+    "fields": {
+      "purpose": "관측 색의 UV 투영 + 보이지 않는 부분의 텍스처 채움",
+      "input": "한 장의 RGB 사진\n텍스트 생성은 별도 응용",
+      "output": "완전한 SMPL UV 텍스처 맵",
+      "conditions": "사진 경로: DensePose 대응·전경 마스크\n텍스트 생성 경로와 구분",
+      "intermediates": "부분 UV 텍스처 · 가시성 마스크",
+      "optimization": null,
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
   }
 }
