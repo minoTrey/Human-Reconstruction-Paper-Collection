@@ -1,0 +1,2 @@
+Independent explanatory diagram created by this archive from method facts in Saleh et al.,DAViD,arXiv2507.15365v1 sections3,B.4 and official multi-task model card at commit 20a3eb66f61d0e1caff42489c6775e142179bd46. No original Figure5, training image, photograph or source code reused. Human silhouettes and maps are hypothetical, not actual predictions or evaluation results.
+Paper CC BY-NC-SA4.0; code/models MIT; SynthHuman CDLA-Permissive2.0. These separate source rights are not extended to each other. Source: https://arxiv.org/html/2507.15365v1
