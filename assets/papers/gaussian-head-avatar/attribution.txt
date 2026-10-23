@@ -1,3 +1,13 @@
+CURRENT DISPLAY ASSET: summary.png (1536 x 1024)
+Independent ImageGen explanatory illustration for this archive. Fictional fully clothed adult portrait and independently depicted geometric/feature representations;not source-paper artwork or actual experimental predictions.
+Method facts: Yuelang Xu et al., Gaussian Head Avatar: Ultra High-fidelity Head Avatar via Dynamic Gaussians, arXiv:2312.03029v2, Sections3-4; https://arxiv.org/html/2312.03029v2#S4 . This is the original Gaussian Head Avatar,not the later HHAvatar dynamic-hair extension.
+Training uses synchronized multi-view RGB video and cameras for each person. BFM fitting provides expression,pose and3D landmarks. SDF and DMTet guidance yield neutral geometry;mesh vertices/features initialize neutral Gaussian positions/features,and learned deformation/color MLPs transfer to the Gaussian stage.
+At runtime,a learned avatar receives expression coefficients,head pose and a render camera. Separate expression/pose MLPs and landmark-distance weights affect Gaussian position,color,rotation,scale and opacity. Neither FLAME binding nor LBS drives this method. Neutral Gaussian features do not imply stored neutral RGB colors.
+Dynamic Gaussians render512x512x32 image features,then super-resolution generates2048x2048 RGB. Feature tiles are independently illustrated2D learned channels,not depth/normal/voxel outputs. The conceptual render illustrates an image output,not a measured mesh-accuracy result. Actual avatar preparation remains person-specific training,not instant single-photo reconstruction.
+No source photographs,author figures,experimental renderings or original layouts were reused or traced. The source paper's arXiv non-exclusive distribution license is not inferred to permit republishing its artwork. No general license for this new summary is inferred from historical notices. Original methods/limits/data text and raw version relationships are unchanged.
+No new speed,training time,universal performance or dynamic-hair simulation claim is made. Original-paper tongue/teeth/long-hair tracking limitations remain in the text.
+
+HISTORICAL ATTRIBUTION FOR RETIRED method.webp AND method.svg (files retained):
 Gaussian Head Avatar v2 — independently authored explanatory diagram
 Based on factual method descriptions in Xu et al., arXiv:2312.03029v2, Sections3–4.
 Source: https://arxiv.org/html/2312.03029v2#S4
