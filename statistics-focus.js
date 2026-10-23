@@ -37,7 +37,7 @@ async function render(changed=false){
  }else{
   stage.append(nodes[chart]);$('#statistics-context').textContent=textSelection();
   const selected=$('#statistics-selection').textContent;
-  const notes={annual:'2026 부분 연도 · 10/20 수집 + RealMe 1편 · 분야 전체 증감 단정 불가',category:'논문당 주분류 1개 · 실제 방법 사용 비율과 별개',representation:'표현 언급 중복 집계 · 미언급 ≠ 미사용 · 셀 선택으로 수치 확인'};
+  const notes={annual:'2026 부분 연도 · 10/20 수집 + 선별 보완 2편 · 분야 전체 증감 단정 불가',category:'논문당 주분류 1개 · 실제 방법 사용 비율과 별개',representation:'표현 언급 중복 집계 · 미언급 ≠ 미사용 · 셀 선택으로 수치 확인'};
   $('#statistics-insight').textContent=notes[chart]+(selected&&selected!=='검색어 없음'?' · '+selected:'');
  }
  adjustAxes();if(changed)animate();
@@ -86,7 +86,7 @@ function detailContent(){
  }else{
   if(tab==='numbers')body.innerHTML=catalogNumbers();
   if(tab==='evidence')body.innerHTML=`<p>${esc(textSelection())}</p><p>현재 검색·필터·날짜 기준의 논문 목록 · 개별 Paper 링크</p><button id="focus-open-catalog">현재 조건의 논문 보기</button>`;
-  if(tab==='method')body.innerHTML=`<p>선택한 목록 레코드 집계 · 초록 확률표본 분석과 분모 별도</p><label for="focus-basis">날짜 기준</label><select id="focus-basis">${$('#basis').innerHTML}</select><p>날짜 확인 자료만 연도 집계 · 미확인 월·일 추정 없음 · 2026 부분 연도 · RealMe 1편 선별 추가</p><p>${esc($('#annual-note').textContent)}</p><p>주제: 주분류 1개 · 표현: 자동 추출 단서 중복 집계 · 표현 언급 ≠ 주 방법·실제 사용률·우수성 · 자료 누락·관련성 미확인 · 분야 전체 성장으로 일반화 불가</p>`;
+  if(tab==='method')body.innerHTML=`<p>선택한 목록 레코드 집계 · 초록 확률표본 분석과 분모 별도</p><label for="focus-basis">날짜 기준</label><select id="focus-basis">${$('#basis').innerHTML}</select><p>날짜 확인 자료만 연도 집계 · 미확인 월·일 추정 없음 · 2026 부분 연도 · 2편 선별 보완</p><p>${esc($('#annual-note').textContent)}</p><p>주제: 주분류 1개 · 표현: 자동 추출 단서 중복 집계 · 표현 언급 ≠ 주 방법·실제 사용률·우수성 · 자료 누락·관련성 미확인 · 분야 전체 성장으로 일반화 불가</p>`;
  }
  if($('#focus-heat-choice'))$('#focus-heat-choice').value=$('#heat-representation').value;
  if($('#focus-basis'))$('#focus-basis').value=$('#basis').value;

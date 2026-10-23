@@ -1,0 +1,5 @@
+summary.png: independent ImageGen explanatory illustration created for this archive. Generated adult and maps are illustrative,not actual Sapiens2 predictions or paper experiments. No source image pixels used. Prompt retained privately.
+figure8.png: Rawal Khirodkar,He Wen,Julieta Martinez,Yuan Dong,Su Zhaoen,Shunsuke Saito. Sapiens2,ICLR2026,Figure8. Source: https://arxiv.org/html/2604.21681v1/pointmap.png
+Article: https://arxiv.org/html/2604.21681v1#S6.F8
+License: Creative Commons Attribution4.0 International,https://creativecommons.org/licenses/by/4.0/ . Full original PNG reproduced byte-for-byte;no crop,translation,overlay or redraw. Paper Figure8 has no separate artwork-license exception indicated in its caption. Original comparison labels remain.
+Code/model Sapiens2 License is separate from the article artwork license. No model weights or code redistributed here.
