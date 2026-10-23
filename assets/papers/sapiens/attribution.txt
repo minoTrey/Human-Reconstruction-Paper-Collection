@@ -7,3 +7,5 @@ License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Unchanged original PNG; no crop, translation or recomposition. Noncommercial research/education use. No separate exception identified in the figure/caption. Paper license is distinct from repository code/model licenses. No endorsement implied.
 
 Summary: original AI-generated educational illustration based on paper section 3, created for this archive with built-in ImageGen. The person and maps are illustrative, not a real person or Sapiens prediction, not a benchmark or reproduction. It does not depict a closed 3D mesh.
+
+Summary revision 2: image-generation edit replaces the misleading feature cube with flat2D patches/features, removes redundant inconsistent-pose miniatures, clarifies separately fine-tuned task models, and adds illustrative relative-depth/surface-direction legends. The original paper Figure1 remains unchanged. Generated person/maps are not actual model outputs or measured geometry.
