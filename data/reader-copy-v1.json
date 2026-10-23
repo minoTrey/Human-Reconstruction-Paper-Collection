@@ -1,0 +1,121 @@
+{
+  "hr_4b4b0ad27b07ab": {
+    "summary": "다중시점 영상 → 개인별 Surfel 아바타. 포즈·조명 변경 렌더링",
+    "fields": {
+      "purpose": "알 수 없는 촬영 조명에서 개인별 아바타 복원\n새 포즈·시점·환경조명으로 렌더링",
+      "input": "다중시점 RGB 영상\n거친 중립 템플릿 · SMPL-X 포즈·변형 정보",
+      "output": "표면 정렬 Gaussian Surfels · 재질·조명\n목표 포즈·시점·조명에 따른 RGB 영상\n일반 메시 내보내기는 미확인",
+      "conditions": "개인별 최적화 · 촬영 조명 동시 추정(HDR cubemap)\n카메라·마스크·템플릿 전처리 사양 불명\n단안 영상만으로 같은 입력 조건 충족 불가",
+      "intermediates": "앞·뒤 위치맵 + 변형 크기·방향 + SMPL-X 정점 거리\nStyleUNets → Surfel 속성 · LBS 포즈 적용\n깊이·법선·albedo·roughness 맵",
+      "optimization": "Deferred PBR · 학습 가능한 HDR 조명\nRGB·지각·기하·정규화 손실\nSSAO: 유한차분으로 9부위 반경 오프셋만 학습\n이 경로의 법선·깊이 맵은 고정",
+      "evaluation": "AvatarReX 4명 · ActorsHQ 2명\nAvatarReX PBR PSNR/LPIPS: 30.2703 dB / 0.0375\nMeshAvatar: 28.5608 / 0.0377\nRadiance PSNR: WebAvatar 31.6588 > ARS-Avatar 30.7514\nPBR·radiance 조건 별도 · 전 지표 최고 아님",
+      "limitations": "RTX 3090 24GB: radiance 500k 약 4일 · PBR 300k 약 2일\n긴 개인별 최적화 · 수작업 변형 prior의 범위 제한\nSSAO 학습은 반경만 · metallic=0\n머리카락·액세서리의 강한 반사 표현 제한"
+    },
+    "steps": [
+      {
+        "title": "변형 단서",
+        "text": "앞·뒤 위치맵 · 변형 크기·방향 · SMPL-X 정점 거리"
+      },
+      {
+        "title": "Surfel·재질",
+        "text": "StyleUNets 속성 추정 → LBS 포즈 적용\n기하·재질 맵 + HDR 조명 → PBR 렌더링"
+      },
+      {
+        "title": "주변 차폐",
+        "text": "SSAO로 주변 차폐 근사\n9부위 반경만 학습 · 이 경로의 기하 맵은 고정"
+      }
+    ],
+    "figureCaptions": [
+      "포즈별 Surfel · 재질 · 재조명"
+    ]
+  },
+  "hr-f9dd57be6e2beaa3": {
+    "summary": "사람 사진 → 2D 관절·부위 분할·상대 깊이·표면 방향. 복원을 위한 특징·기하 단서",
+    "fields": {
+      "purpose": "인체 복원을 지원하는 고해상도 특징·기하 단서\n완성 3D 메시나 매개변수 몸 모델은 아님",
+      "input": "한 장의 RGB 사진\n과제별 입력 1024×768 · 자세 추정은 사람 검출·크롭 포함\n측정 깊이·개인별 3D 스캔 불필요",
+      "output": "특징 텐서 · 2D 관절점 · 분할 · 상대 깊이 · 법선\n관절 설정: 17·133·308점 · 분할: 배경 포함 28라벨\n깊이는 상대값 · 미터 단위 거리 아님\n메시·숨은 뒷면·리깅·머리카락 가닥·손 메시 출력 없음",
+      "conditions": "Humans-300M · 1024² · patch16 · 75% mask MAE 사전학습\n가린 이미지 픽셀 복원 · 3D 몸 복원과 별개\n과제별 인코더·디코더 전체 미세조정\nPose-1M · 분할 100K · 600스캔의 500K 합성 렌더링\n과제별 체크포인트 · 개인별 피팅 없는 순전파",
+      "intermediates": "MAE 사전학습 → 과제별 디코더·전체 모델 미세조정\n사진 → 특징·관절 heatmap·분할·기하 맵\n깊이·법선 예시의 전경은 분할 마스크로 표시",
+      "optimization": "추론 중 개인별 최적화 없음\n0.3B·0.6B·1B·2B: 크기별 모델 · Lite: 추론 변형\nSapiens2: 별도 후속 연구",
+      "evaluation": "Humans-5K 자세: 검출 후 top-down · 공통 114점 · flip test\nHumans-2K: 부위 분할 · THuman2.0/Hi4D: 깊이·법선\nAP·mIoU·깊이·각도 오차는 서로 다른 과제 지표\n완성 메시 정확도나 분야 전체 순위로 환산 불가",
+      "limitations": "희귀·복잡한 자세 · 군중 · 심한 가림에서 오류\n손·머리카락 픽셀 포함 ≠ 독립 손·머리카락 복원\n크기별 모델·Lite 결과를 한 수치로 혼합 불가"
+    },
+    "steps": [
+      {
+        "title": "인체 특징 사전학습",
+        "text": "Humans-300M에서 가린 픽셀 복원\nViT 공통 특징 학습"
+      },
+      {
+        "title": "과제별 미세조정",
+        "text": "자세·분할·깊이·법선별 디코더\n인코더와 디코더 함께 학습"
+      },
+      {
+        "title": "필요한 단서 예측",
+        "text": "한 사진 → 선택한 과제의 출력\n모든 과제를 동시에 내는 단일 모델은 아님"
+      },
+      {
+        "title": "복원의 입력 단서",
+        "text": "상대 깊이·표면 방향·2D 관절 활용\n완성 메시·리깅 출력 없음"
+      }
+    ],
+    "figureCaptions": [
+      "사진에서 인체 단서로",
+      "논문 Figure 1 · 예측 사례"
+    ],
+    "figureCredits": [
+      "",
+      "Rawal Khirodkar et al., Sapiens, ECCV 2024, Figure 1"
+    ],
+    "figureChanges": [
+      "",
+      "원본 · 변경 없음"
+    ]
+  },
+  "hr_9f6c6f805ecafc": {
+    "summary": "단일 사진 → 여러 사람의 Anny 몸 형상·자세·위치. 이미지별 단계별 피팅",
+    "fields": {
+      "purpose": "여러 사람의 체형·자세·위치를 카메라 공간에서 함께 정합\n몸 크기·거리의 모호성 완화",
+      "input": "한 장의 RGB 사진\n초기 메시 · 예측 내참수 또는 설정 FOV\n2D 관절·밀집 대응·마스크·추정 깊이·VLM 체형 prior\nMulti-HMR·ViTPose·UniDepth 예측 활용",
+      "output": "인물별 Anny 매개변수·메시 · 공유 카메라 공간 배치\nAnny: 몸 모델 · Anny-Fit: 피팅 방식\nSMPL 초기화 사용 시 Anny로 변환\n옷·텍스처 아바타 출력 아님",
+      "conditions": "새 네트워크 학습 없는 이미지별 피팅\n위치 → 위치·전역 회전·체형 → 관절 포함 전체 매개변수\n단계별 손실 가중치 변경 · 마지막 깊이 순서 가중치 0\nMulti-HMR 반복: 논문 50/100/200 · 데모 100/100/200\nQwen2.5-VL-7B 머리 크롭: 체형 prior · 실제 나이·신원 확인 아님",
+      "intermediates": "초기 Anny 메시·포즈·위치\n전문 모델의 관절·밀집 대응·마스크·깊이 단서\nVLM 범주 → 의미 기반 체형 값\n카메라 투영과 사람 간 깊이 관계로 정합",
+      "optimization": "여러 사람의 위치·회전·체형·관절 공동 최적화\n관절·밀집 대응·체형 prior·초기 상태·깊이 순서 손실\n이미지별 단계별 피팅 · 이전 영상 프레임 불필요",
+      "evaluation": "RelativeHuman test · Multi-HMR 초기화\nmPCKh.6: 65.39→78.84% · PCDR.2: 59.79→66.11%\nBEV PCDR.2 69.19% · 전 지표 최고 아님\nCMU-toddler 5시퀀스: 인물별 root / 전체 Joint-PA 정렬 구분\nPCK@15cm에 검출 누락 반영\n별도 재학습: COCO 30,537이미지 → 오차 3~95백분위 필터 → 28,039 의사 GT\nAnny-One과 Multi-HMR 재학습 · Hi4D 수치는 본체 피팅과 별개",
+      "limitations": "어린 연령 데이터 부족 · 전 연령 분포의 완전한 검증 아님\n가림·저해상도·후면에서 전문가·VLM 오류와 초기화 실패\n충돌 제약 없음 · 메시 간 관통 가능\n128메시 약 100ms는 SMPL→Anny 변환만 · 전체 피팅 시간 미보고"
+    },
+    "steps": [
+      {
+        "title": "초기 메시·단서",
+        "text": "초기 Anny 메시 + 관절·밀집 대응·마스크·깊이·체형 prior"
+      },
+      {
+        "title": "위치",
+        "text": "카메라 공간에서 여러 사람의 위치·깊이 배치 공동 정합"
+      },
+      {
+        "title": "회전·체형",
+        "text": "위치·전역 회전·체형 조정\nVLM은 체형 prior · 실제 나이·신원 확인 아님"
+      },
+      {
+        "title": "관절 자세",
+        "text": "전체 매개변수 정교화\n단계별 손실 변경 · 마지막 깊이 순서 가중치 0"
+      }
+    ],
+    "figureCaptions": [
+      "위치 → 회전·체형 → 관절 자세"
+    ]
+  },
+  "hr_04747b730f0759": {
+    "metadata": {
+      "venue": "CVPR 2024 · pp. 1931–1941",
+      "dateLabel": "원논문 공개"
+    }
+  },
+  "hr-fc06ae8a242ac2a9": {
+    "metadata": {
+      "venue": "IEEE TPAMI · 2025",
+      "dateLabel": "확장판 공개"
+    }
+  }
+}
