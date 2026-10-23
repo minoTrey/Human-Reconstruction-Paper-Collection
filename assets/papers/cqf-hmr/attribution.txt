@@ -1,0 +1,6 @@
+Cuong Le et al., CQF-HMR, Figure 2 (2026).
+Source: https://arxiv.org/html/2609.00995v1#S2.F2
+Image: https://arxiv.org/html/2609.00995v1/figures/Pipeline_1.png
+License: Creative Commons Attribution 4.0 International, https://creativecommons.org/licenses/by/4.0/
+License verified on the arXiv v1 HTML and abstract page, 2026-10-23 UTC.
+No crop, translation or redrawing. PNG converted losslessly to WebP with original pixels and transparency preserved. The surrounding Korean explanation is by this archive.
