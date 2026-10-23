@@ -1,3 +1,12 @@
+CURRENT DISPLAY ASSET: summary-adult.png (1536 x 1024)
+Independent ImageGen explanation, generated earlier and reused unchanged from the preserved adult-only safe alternative. It is not the original paper Figure 3 or a reproduction of paper photographs/code.
+Method facts: Laura Bravo-Sánchez et al., Anny-Fit: All-Age Human Mesh Recovery, arXiv:2605.04728v1, sections 3 and 7.4; https://arxiv.org/html/2605.04728v1 . Official demo configuration b03ec1920e3ad16828a40940338b401387e9d631.
+Fully clothed adults and opaque covered neutral models only. The image is a schematic teaching example, not an actual paper prediction, measured intermediate reconstruction, all-age/age-group evaluation, or age/identity recognition result.
+The covers are a non-exposed teaching convention, not recovered clothing, hair, or texture. Actual output remains Anny body-shape/pose parameters and mesh. The drawing illustrates position-only fitting, then translation/root-rotation/shape, then joints/all parameters; it does not represent numerically exact error reductions.
+Experts provide predicted joints/dense correspondences/masks/depth and VLM shape cues. Main image-specific fitting is distinct from the separate pseudo-GT retraining experiment. Stage weights differ; the default demo final depth-order weight is zero.
+The source paper's arXiv non-exclusive distribution license and the implementation's NAVER NonCommercial License are not treated as original-figure reuse permission. No new license for third-party paper figures, photographs, code, or body models is asserted.
+
+HISTORICAL ATTRIBUTION FOR RETIRED method.svg / method.webp (files retained):
 Anny-Fit method explanation — independently drawn for this archive, 2026-10-23.
 Source facts: Laura Bravo-Sánchez et al., Anny-Fit: All-Age Human Mesh Recovery, arXiv:2605.04728v1, sections 3 and 7.4, https://arxiv.org/html/2605.04728v1 .
 Official demo configuration checked at commit b03ec1920e3ad16828a40940338b401387e9d631: https://github.com/naver/anny-fit/blob/b03ec1920e3ad16828a40940338b401387e9d631/annyfit/configs/demo/multihmr.yaml .
