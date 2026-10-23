@@ -1,0 +1,7 @@
+StudioRecon v1 - independently authored explanation
+Method source: https://arxiv.org/html/2607.09125v1#S3 ; App.D-F.
+Original title: 4D Human-Scene Reconstruction from Low-Overlap Captures, Hwang et al., SIGGRAPH Conference Papers2026.
+New Korean text, boxes and arrows explain separate background/human processing and distinguish3D reconstruction from final video enhancement. No source Figure2 image, photograph, traced artwork or layout is reused. This is not the authors original Figure2.
+Paper CC BY-NC-ND4.0 and separate code non-commercial research/evaluation restrictions are not treated as blanket permission to redistribute adapted original figures or code. No original code is embedded in this drawing.
+method.svg is the newly authored source; method.webp is its lossless display rendering. Original paper/project material retains its own rights.
+Checked2026-10-23UTC.

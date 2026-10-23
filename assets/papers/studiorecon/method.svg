@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#3e6587"/></marker></defs><style>text{font-family:Malgun Gothic,Segoe UI,sans-serif;fill:#17364d}.title{font-size:38px;font-weight:700}.heading{font-size:29px;font-weight:700}.body{font-size:26px}.note{font-size:24px;fill:#50677a}.flow{fill:none;stroke:#3e6587;stroke-width:4;marker-end:url(#arrow)}</style><rect width="1600" height="1000" fill="#f8fafc"/>
+<text x="55" y="63" class="title">StudioRecon · v1 독자 설명 도식</text>
+<text x="55" y="104" class="note">원문 그림을 사용하지 않고, 처리 대상과 출력의 차이를 새로 정리했습니다.</text>
+<rect x="390" y="133" width="820" height="90" rx="16" fill="#e8f1f9" stroke="#b6c9d9" stroke-width="2"/>
+<text x="435" y="172" class="heading">동기화된 고정 카메라 RGB 영상</text><text x="435" y="207" class="note">SAM3 사람 구분 · Pi3 카메라·깊이 추정</text>
+<path d="M800 225 v25 H420 v27" class="flow"/><path d="M800 250 H1180 v27" class="flow"/>
+<rect x="60" y="293" width="720" height="340" rx="18" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="90" y="340" class="heading">정적 배경 · 첫 시점에서 관측 보충</text>
+<text x="90" y="388" class="body">GEN3C로 카메라 제어 생성 뷰 만들기</text>
+<text x="90" y="434" class="body">생성 뷰를 이용해 배경 Gaussian 최적화</text>
+<text x="90" y="480" class="body">부족한 관측 영역의 시각적 보충</text>
+<text x="90" y="539" class="note">생성된 영역 = 실제 기하 정답은 아님</text>
+<text x="90" y="581" class="note">배경은 시간에 따라 정적으로 유지</text>
+<rect x="820" y="293" width="720" height="340" rx="18" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="850" y="340" class="heading">동적 사람 · 실제 영상의 시간축 학습</text>
+<text x="850" y="388" class="body">동일 인물 연결 · NLF 키포인트 삼각측량</text>
+<text x="850" y="434" class="body">시간 이상치 보정 · 스케일 정합 · SMPL fitting</text>
+<text x="850" y="480" class="body">사람별 Gaussian 최적화 · SMPL/LBS 구동</text>
+<text x="850" y="539" class="note">시간 MLP → 색·불투명도 잔차</text>
+<text x="850" y="581" class="note">옷의 3D 기하 변위를 직접 예측하지 않음</text>
+<path d="M420 635 v34 H370 v28" class="flow"/><path d="M1180 635 v34 H370" fill="none" stroke="#3e6587" stroke-width="4"/>
+<rect x="60" y="713" width="620" height="180" rx="17" fill="#e8f1f9" stroke="#b6c9d9" stroke-width="2"/>
+<text x="90" y="758" class="heading">학습된 3D 장면 + 카메라 경로</text>
+<text x="90" y="807" class="body">배경·사람을 합친 원본 Gaussian 렌더</text>
+<text x="90" y="852" class="note">중간 SMPL ≠ 완성된 의복 메시 출력</text>
+
+<path d="M692 802 h78" class="flow"/>
+<rect x="800" y="713" width="740" height="180" rx="17" fill="#fff" stroke="#b6c9d9" stroke-width="2"/>
+<text x="830" y="758" class="heading">시간 일관성을 고려한 영상 보정</text>
+<text x="830" y="807" class="body">참조 영상 · optical flow · 이전 보정 프레임</text>
+<text x="830" y="852" class="note">diffusion 정제 → 최종 영상 (3D 기하와 구분)</text>
+<text x="60" y="956" class="note">장면별 최적화가 필요한 오프라인 과정 · 입력 동기화와 렌즈 왜곡 보정 조건을 확인하세요.</text>
+</svg>
