@@ -1,0 +1,6 @@
+Aymen Mir, Riza Alp Guler, Xiangjun Tang, Peter Wonka and Gerard Pons-Moll. AHOY! Animatable Humans under Occlusion from YouTube Videos with Gaussian Splatting and Video Diffusion Priors. arXiv2603.17975v2, Figure2 (2026).
+Source: https://arxiv.org/html/2603.17975v2#S3.F2
+Image: https://arxiv.org/html/2603.17975v2/method_font2.png
+License: Creative Commons Attribution4.0 International, https://creativecommons.org/licenses/by/4.0/ . Verified on v2 arXiv HTML and abstract license link.
+Changes: Whole original figure, no crop/translation/redrawing/compositing. PNG converted losslessly to WebP with all decoded pixels preserved. Surrounding Korean explanation by this archive.
+Checked2026-10-23UTC.
