@@ -1,0 +1,5 @@
+summary.png: independent ImageGen explanatory scene,not actual EEG measurements,paper participants,predictions or experimental results. One initial generation and one upper-band technical-accuracy edit. The example preserves cap/identity and depicts latent vectors as2Dcodes;no pure-thought or new-person generalization claim.
+figure4.png: Camilo Andrés Martínez Martínez,Olaf Dünkel,Kartik Teotia,Maurice Rekrut,Christian Theobalt,Marc Habermann. Brain2Face: A Study on the Relation of EEG Signals and Spatio-temporal Head Avatars,2026,Figure4.
+Source: https://arxiv.org/html/2610.17356v1/overview_diagram.png
+Paper: https://arxiv.org/html/2610.17356v1#A1.F4
+License: Creative Commons Attribution4.0 International,https://creativecommons.org/licenses/by/4.0/ . Full original PNG reproduced byte-for-byte,no crop,translation,overlay or redraw. No separate artwork-license exception indicated in the caption. This article artwork license is not a claim that code,models or datasets have been released or share that license. No participant data or weights redistributed.
