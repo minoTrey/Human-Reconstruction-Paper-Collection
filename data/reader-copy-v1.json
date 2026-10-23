@@ -832,5 +832,75 @@
     "figureChanges": [
       "원본 전체 · 크롭·번역·재구성 없이 무손실 WebP 변환"
     ]
+  },
+  "hr_dd9fccc9a9ba73": {
+    "summary": "단안 영상 → 시점 간 일관된 생성 영상 → 동적 4D Gaussian 인체·새 시점 렌더링",
+    "fields": {
+      "purpose": "생성 다중시점 영상으로 움직이는 4D Gaussian 인체 복원",
+      "input": "사전 보정 없는 단안 RGB 영상\n다중시점 영상은 생성 중간물 · 추가 촬영 아님",
+      "output": "동적 4D Gaussian 인체 · 새 시점 영상",
+      "conditions": "외부 입력은 단안 영상\n생성 다중시점 영상과 실제 관측 구분",
+      "intermediates": "시점 간 일관된 생성 영상",
+      "optimization": null,
+      "evaluation": "DNA-Rendering·DyMVHumans\n세부 평가 조건 미확인",
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_776e4c1c02f286": {
+    "summary": "mmWave 반사 신호 선별 → 시간에 따른 움직임 분석 → 3D 인체 메시",
+    "fields": {
+      "purpose": "레이더의 인체 반사 신호와 시간별 움직임으로 몸 메시 복원",
+      "input": "mmWave 레이더 시계열\nRGB 입력 아님",
+      "output": "3D 인체 메시",
+      "conditions": "레이더 시계열 기반 복원",
+      "intermediates": "신뢰도 가중 레이더 볼륨",
+      "optimization": null,
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_ea09242553918e": {
+    "summary": "삼각형 메시의 움직임 + 표면에 부착한 Gaussians의 세부 외형 → 구동 가능한 아바타",
+    "fields": {
+      "purpose": "메시 움직임과 Gaussian 세부 외형 결합",
+      "input": "단안 RGB 영상",
+      "output": "메시로 구동되는 Gaussian 아바타",
+      "conditions": "저주파 움직임은 메시 · 세부 외형은 Gaussian",
+      "intermediates": null,
+      "optimization": "메시 위 Gaussian 위치·속성의 lifted 최적화",
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
+  },
+  "hr_ada398876436e3": {
+    "summary": "단안 영상 → 비강체 변형 학습 → 새 자세로 렌더링하는 Gaussian 아바타",
+    "fields": {
+      "purpose": "단안 영상에서 비강체 변형 가능한 Gaussian 아바타 복원",
+      "input": "단안 RGB 영상",
+      "output": "변형 가능한 3D Gaussian 아바타",
+      "conditions": null,
+      "intermediates": null,
+      "optimization": "영상별 Gaussian·비강체 변형 네트워크 학습",
+      "evaluation": null,
+      "limitations": "하드웨어·데이터 조건이 다른 학습·렌더링 속도의 직접 비교에 제약"
+    },
+    "hideReviewStatus": true
+  },
+  "hr_00665020c5a499": {
+    "summary": "SMPL-X 법선 가이드 → 측면 특징 분리 → 의복 인체 메시·확산 텍스처 정제",
+    "fields": {
+      "purpose": "몸 모델 법선 기반 측면 특징 + 보이지 않는 텍스처의 확산 정제",
+      "input": "한 장의 RGB 사진",
+      "output": "의복 인체 메시 · 정제된 텍스처",
+      "conditions": "SMPL-X 법선 가이드\n생성·정제 단계 포함 · 단일 순전파와 구분",
+      "intermediates": "측면 특징 · 확산 텍스처 사전 정보",
+      "optimization": null,
+      "evaluation": null,
+      "limitations": null
+    },
+    "hideReviewStatus": true
   }
 }
