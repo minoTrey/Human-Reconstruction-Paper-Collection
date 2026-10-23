@@ -1,2 +1,13 @@
+Microsoft DAViD visual-quality replacement
+
+Original Figure5: Fatemeh Saleh, Sadegh Aliakbarian, Charlie Hewitt, Lohit Petikam, Xiao-Xian, Antonio Criminisi, Thomas J. Cashman, Tadas Baltrusaitis. DAViD: Data-efficient and Accurate Vision Models from Synthetic Data, ICCV2025,arXiv2507.15365v1.
+Source: https://arxiv.org/html/2507.15365v1#S3.F5
+PDF: https://arxiv.org/pdf/2507.15365v1#page=4
+License: https://creativecommons.org/licenses/by-nc-sa/4.0/
+Full diagram extracted from PDFpage4 at600dpi (x533,y600,width1875,height667 pixels). Page text/caption outside diagram omitted;no diagram-label changes,translation or recomposition. Noncommercial educational use. ShareAlike retained. No separate exception identified in figure/caption. No endorsement implied. Paper license is distinct from MIT code/models and CDLA-Permissive2.0 data. The original diagram illustrates normal prediction;the independent summary selects the official multi-task variant.
+
+Summary: original ImageGen educational scene;fictional synthetic training examples and fictional real-photo-style inference input/maps,not actual DAViD output or benchmarks. Global ViT and convolutional resizer paths are parallel and merge into decoder. Multitask variant outputs relative depth,normal,soft alpha together;individual task models also exist. Synthetic task supervision does not imply a backbone without pretraining. Depth is nonmetric;normal colour represents orientation;alpha0background/1foreground and fractional soft boundaries is not a depth field. No mesh/rigging/hair-strand reconstruction.
+
+HISTORICAL ATTRIBUTION FOR RETIRED method.svg / method.webp ONLY (assets retained;no longer displayed):
 Independent explanatory diagram created by this archive from method facts in Saleh et al.,DAViD,arXiv2507.15365v1 sections3,B.4 and official multi-task model card at commit 20a3eb66f61d0e1caff42489c6775e142179bd46. No original Figure5, training image, photograph or source code reused. Human silhouettes and maps are hypothetical, not actual predictions or evaluation results.
 Paper CC BY-NC-SA4.0; code/models MIT; SynthHuman CDLA-Permissive2.0. These separate source rights are not extended to each other. Source: https://arxiv.org/html/2507.15365v1
