@@ -1,3 +1,12 @@
+CURRENT DISPLAY ASSET: summary.png (1536 x 1024)
+Independent ImageGen explanatory illustration for this archive. One generation,no edits. Fictional fully clothed adults and living room;conceptual representations,not source-paper artwork or actual model predictions/experiments.
+Method facts: Minhyuk Hwang et al.,4D Human-Scene Reconstruction from Low-Overlap Captures (StudioRecon),arXiv:2607.09125v1,Section3 and AppendixD-E; https://arxiv.org/html/2607.09125v1#S3 .
+Synchronized fixed-camera RGB inputs are separated into static background and dynamic-human branches. Person masks and first-frame camera/depth estimates support preparation. Generated first-timestep camera views supplement background supervision;human regions are excluded. Rendered background ellipsoids and sparse surface samples schematically illustrate Gaussians,not verified geometry of unseen room regions.
+Cross-view identity association,keypoint triangulation,scale fitting and SMPL initialize people. Grey mesh displays are opaque neutral priors for initialization/driving,not final clothing meshes. People are optimized on original videos over time,while background optimization uses supplemental views. SMPL/LBS drives human deformation;the temporal MLP predicts color and opacity residuals,not clothing3D geometry displacements.
+The desired camera trajectory renders composed background/person Gaussians. Recursive diffusion enhancement uses reference images,optical flow and previously enhanced outputs for consistency. Mild artifacts and their cleanup in the illustrative before/after views are hypothetical,not benchmark observations,measured gains or proof of improved3D geometry. No realtime,feed-forward-only,training-time,FPS,metric accuracy or universal image-quality claim is introduced.
+No source photograph,paper figure,author layout or experimental rendering was reused,traced or adapted. The paper's CC BY-NC-ND4.0 license and code's separate research restrictions are not licenses for this independently produced summary. Historical attribution below remains verbatim for the retired collection-authored SVG/WebP. Existing technical text,source evidence and raw metadata remain unchanged.
+
+HISTORICAL ATTRIBUTION FOR RETIRED method.webp AND method.svg (files retained):
 StudioRecon v1 - independently authored explanation
 Method source: https://arxiv.org/html/2607.09125v1#S3 ; App.D-F.
 Original title: 4D Human-Scene Reconstruction from Low-Overlap Captures, Hwang et al., SIGGRAPH Conference Papers2026.
