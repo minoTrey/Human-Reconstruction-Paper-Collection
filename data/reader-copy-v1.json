@@ -474,5 +474,185 @@
     "figureCaptions": [
       "사람·배경의 3D 복원 → 자유시점 렌더 → 영상 보정"
     ]
+  },
+  "hr_7383da1e6ae4ea": {
+    "summary": "단안 상호작용 영상 → 생성 시점 보강 → 사람·강체 물체의 4D 형상·움직임 공동 복원",
+    "fields": {
+      "purpose": "단안 영상의 사람·물체 형상·움직임·접촉 관계 공동 복원",
+      "input": "사람이 물체를 다루는 한 카메라의 RGB 영상",
+      "output": "자유시점의 사람·강체 물체 4D 복원\n시간에 따라 이어지는 3D 형상·움직임",
+      "conditions": "초기 사람·물체 움직임 + SMPL-X + 초기 3D Gaussians\n새 시점 영상은 내부 생성한 보조 관측 · 추가 촬영 아님",
+      "intermediates": "상호작용 구간별 설명 문장\n새 시점 렌더 → 확산 모델 정제 영상\n물체의 다중시점 깊이 → 거리장",
+      "optimization": "3D Gaussian 형상 + B-spline 움직임\n원본·정제 영상 일치 + 물체 거리장·접촉·충돌 제약\n영상별 사람·물체 공동 최적화",
+      "evaluation": "Open4DHOI·BEHAVE\n형상 오차·접촉·충돌·시간 일관성 평가",
+      "limitations": "복잡한 손가락·접촉 세부는 생성 오류에 영향\n강체 물체 가정 · 중력·마찰 동역학 미모델링\n실시간 시스템 아님"
+    },
+    "steps": [
+      {
+        "title": "상호작용 구간",
+        "text": "초기 사람·물체 움직임과 물체 궤적 변화로 분할\n구간별 상호작용 문장 구성"
+      },
+      {
+        "title": "새 시점 보강",
+        "text": "초기 3D 복원의 새 시점 렌더\n구간 문장·사람·물체 영역 조건 → 영상 확산 정제"
+      },
+      {
+        "title": "4D 공동 최적화",
+        "text": "생성 시점 깊이 → 물체 거리장\n영상 일치·접촉·충돌 제약 + B-spline 움직임"
+      }
+    ],
+    "figureCaptions": [
+      "Figure 3 · 상호작용 구간 → 새 시점 정제 → 4D 공동 최적화"
+    ],
+    "figureCredits": [
+      "Nam et al., HORIA, Figure 3 (2026)"
+    ],
+    "figureChanges": [
+      "WebP 변환 · 그림 내용 변경 없음"
+    ]
+  },
+  "hr_f9c83dedf9fd39": {
+    "summary": "기기 내 사진·라벨로 로컬 학습 → 모델 업데이트 집계 → 사용자별 인체 메시 복원",
+    "fields": {
+      "purpose": "원본 사진을 서버에 모으지 않는 인체 메시 학습·개인화 벤치마크",
+      "input": "추론: 한 장의 RGB 사진\n학습: 기기에 보관한 사진 + 메시 라벨 또는 로컬 의사정답",
+      "output": "SMPL 구조의 3D 인체 메시 · 6,890개 정점",
+      "conditions": "FastMETRO-S·TORE-S 기반 연합학습\nDePoser 깊이는 RGB 예측값 · 외부 깊이 센서 아님\n로컬 라벨 생성·학습과 최종 추론은 별도 단계",
+      "intermediates": "Sapiens의 2D 관절·상대 깊이\n예측 깊이의 미터 척도 정렬\n몸 모델 피팅으로 만든 메시 의사정답",
+      "optimization": "DePoser: 관절·깊이 단서 + 몸 모델 사전 정보로 라벨 피팅\n기기별 모델 업데이트 → 서버 집계\n공유 모델 배포 → 로컬 데이터 개인화",
+      "evaluation": "10·100·1,000개 모의 클라이언트 · 데이터 불균형 조건\n일부 설정에서 중앙집중 학습과 비슷한 복원 정확도\n설정 간 학습 예산 차이\n개인화 평가는 독립 3D 정답 대신 DePoser 의사정답 기준",
+      "limitations": "연합학습만으로 개인정보 보호 보장 불가\n업데이트·공유 모델의 정보 유출 공격 미평가\n개인화 결과의 의사정답 의존\n실제 기기 집단이 아닌 모의 클라이언트 실험"
+    },
+    "steps": [
+      {
+        "title": "로컬 의사정답",
+        "text": "DePoser의 2D 관절·예측 깊이 기반 몸 모델 피팅\n기기 내 학습용 메시 라벨 생성"
+      },
+      {
+        "title": "업데이트 집계",
+        "text": "원본 사진은 각 기기에 보관\n서버는 모델 업데이트를 집계해 공유 모델 구성"
+      },
+      {
+        "title": "개인화·추론",
+        "text": "공유 모델 배포 → 로컬 데이터 적응\n한 장의 RGB 사진 → 인체 메시"
+      }
+    ],
+    "figureCaptions": [
+      "Figure 2 · 로컬 라벨 → 업데이트 집계 → 기기 내 추론"
+    ],
+    "figureCredits": [
+      "Cao et al., PCHMR, Figure 2 (2026)"
+    ],
+    "figureChanges": [
+      "PNG→WebP 변환 · 그림 내용 변경 없음"
+    ]
+  },
+  "hr_6a0e6ffbdab6bf": {
+    "summary": "영상 생성 모델의 기하 사전 지식 → 가림 영상의 몸·손 자세와 움직임 복원",
+    "fields": {
+      "purpose": "일부만 보이거나 가려진 사람의 몸·손 움직임 공동 복원",
+      "input": "대상 사람의 RGB 영상\n관측 영역 마스크 · 인물 추적 상자",
+      "output": "프레임별 SMPL-X 몸·손 자세와 체형\n카메라 좌표의 골반 위치 · 인물 존재 여부",
+      "conditions": "학습: 정답 SMPL-X의 완전한 몸 렌더링\n추론: RGB·마스크·추적 상자 · 정답 렌더링 불필요",
+      "intermediates": "영상 생성 backbone의 기하 특징\n부위 상태 · 관절 주변 특징·유효성 점수",
+      "optimization": "몸 렌더링으로 표현 적응 → 매개변수 복원 학습\n추론은 RGB 특징의 한 번 처리 · 개인별 별도 최적화 없음",
+      "evaluation": "3DPW·EMDB-1·RICH + BEDLAM·EgoBody 가림 조건\n해당 Wan-5B 비교 설정에서 몸·손 복원 오차 감소",
+      "limitations": "SMPL-X 몸·손 표현 · 독립 의복 표면 복원과 구분\n가려진 부위는 추정\n81프레임 문맥 결과로 실시간 스트리밍 성능 판단 불가"
+    },
+    "steps": [
+      {
+        "title": "인체 기하 적응",
+        "text": "완전한 SMPL-X 몸의 표면 좌표 색·음영 렌더\n영상 생성 모델의 인체 구조 표현 학습"
+      },
+      {
+        "title": "관절 단서 선별",
+        "text": "관절 주변 특징의 대상 인물 유효성 점수\n보정량 조절 → 가림 물체·배경 영향 완화"
+      },
+      {
+        "title": "몸·손 움직임",
+        "text": "전체 문맥 + 국소 단서의 디코더\n프레임별 몸·손 자세와 체형 복원"
+      }
+    ],
+    "figureCaptions": [
+      "Figure 1 · 인체 기하 학습 + 관절 주변 단서 보정"
+    ],
+    "figureCredits": [
+      "Xu et al., DreamHMR, Figure 1 (2026)"
+    ],
+    "figureChanges": [
+      "PDF Figure 1 영역 추출·WebP 변환 · 그림 내용 변경 없음"
+    ]
+  },
+  "hr_523464976b12fd": {
+    "summary": "단안 영상 → 세계 좌표의 3D 자세·35지점 접촉 확률·접촉힘 공동 추정",
+    "fields": {
+      "purpose": "자세·환경 접촉·힘 공동 추정\n분리 계산의 오차 전파 완화",
+      "input": "단안 RGB 영상\nSAM3 사람 마스크·VGGT-Ω 카메라 궤적은 내부 추정\n몸 크기를 기준으로 척도 정합",
+      "output": "세계 좌표 SMPL-X 자세·움직임\n몸의 35개 지점 접촉 확률·접촉힘 · 중력 방향",
+      "conditions": "카메라·사람 움직임 분리 전처리\n힘의 뉴턴 환산에는 복원 체형의 질량 사용\nForceWall 힘 센서는 평가 정답용 · 추론 입력 아님",
+      "intermediates": "고정 SAM3D Body 자세 특징\n학습한 접촉·힘 토큰\n세계 좌표 관절 위치·속도",
+      "optimization": "접촉·힘 토큰과 시간 모델의 물리 제약 학습\n학습용 물리 최적화 정답과 추론 네트워크의 반복 정제 구분",
+      "evaluation": "ForceWall·Parkour: 해당 비교에서 평균 힘 오차 감소\n모든 자세·물리 지표의 개선은 아님\nOpenCap 비교의 단안/두 시점·질량 조건 구분",
+      "limitations": "강체·정적 환경 접촉 가정\n손에 든 물체의 힘 · 매트·로프 등 변형 지지면 제외\n근육 힘 추정 아님"
+    },
+    "steps": [
+      {
+        "title": "영상·세계 좌표 단서",
+        "text": "SAM3D Body 특징 + 접촉·힘 토큰\n추정 카메라 궤적·몸 크기 → 관절 위치·속도 정합"
+      },
+      {
+        "title": "자세·접촉·힘 예측",
+        "text": "시간 Transformer의 자세·접촉·힘 특징 결합\n자세 보정 + 접촉 확률·힘·중력 출력"
+      },
+      {
+        "title": "물리 일관성 학습",
+        "text": "운동 방정식으로 움직임·힘 관계 학습\n합성·실제 영상의 물리 최적화 정답 사용\n센서 측정 힘은 별도 평가용"
+      }
+    ],
+    "figureCaptions": [
+      "Figure 2 · 자세·접촉·힘의 시간 모델과 물리 일관성"
+    ],
+    "figureCredits": [
+      "Akizhanov et al., PACT, Figure 2 (2026)"
+    ],
+    "figureChanges": [
+      "WebP 변환 · 그림 배치·내용 변경 없음"
+    ]
+  },
+  "hr_1f5b581cd9a32e": {
+    "summary": "한 이미지의 2D 관절 단서 → 회전·체형 flow → 여러 SMPL 가설. 단일 정답 자동 선택과 구분",
+    "fields": {
+      "purpose": "깊이·가림의 모호성을 복수 3D 자세·체형 가설로 표현",
+      "input": "한 장의 이미지\nHRNet MPII 관절 heatmap의 top-k 좌표 → GCN 조건\n정답 3D 관절·SMPL 매개변수는 학습용 · 추론 입력 아님",
+      "output": "관절 회전 quaternion + 체형 β 10차원 → 복수 SMPL 메시·3D 관절\nquaternion은 내부 회전 표현 · 최종 인체 모델은 SMPL\n정답 메시 하나의 자동 선택 아님",
+      "conditions": "정답 3D 관절 + 관절에 SMPL을 맞춘 의사정답 자세·체형\n무작위 초기 상태·시간 t · 자세 slerp·체형 선형 보간\n각속도·체형 변화율 + 3D 관절 손실 학습\n공유 모델의 가설 생성 · 개인별 모델 재학습 없음",
+      "intermediates": "top-k 좌표의 루트 원점·단위 표준편차 정규화 → GCN\n초기 자세: Gaussian axis-angle 또는 VPoser 32차원 latent\n초기 체형 β: Gaussian 샘플\nDENet: 현재 상태·시간·이미지 조건 → 각속도·체형 변화율",
+      "optimization": "DENet·GCN의 flow matching + SMPL 3D 관절 손실\nHamilton product 기반 quaternion 적분 + 체형 RK2 · 20단계\n네트워크 추론·수치 적분 반복 · 추론 중 정답 기반 최적화 아님",
+      "evaluation": "Human3.6M: S1/5/6/7/8 학습 · S9/11 평가\nregular: 매 64번째 프레임 · ambiguous: heatmap 기반 부분집합\nVPoser·best-of-200 · 3개 seed 평균±표준편차\nregular MPJPE/PA-MPJPE 39.4±0.2 / 27.9±0.1mm\nambiguous 54.4±0.3 / 42.5±0.2mm\nbest-of-N은 정답으로 최소 오차 후보 선택 · 실제 자동 선택·단일 출력 성능 아님",
+      "limitations": "HRNet 오류·가림 · 체격·거리 모호성\nVPoser 자세 범위 한계 · 회전 표현 변환 비용\n장면 접촉·환경 관계는 후속 과제\n3DPW 평가 분할 표기 불일치(test/training) · EMDB 가설 수 미확인\n공식 프로젝트·코드·체크포인트 미확인"
+    },
+    "steps": [
+      {
+        "title": "이미지 조건",
+        "text": "HRNet 관절 heatmap → top-k 좌표 정규화 → GCN\n생성 모델의 2D 관절 조건"
+      },
+      {
+        "title": "회전·체형 flow",
+        "text": "Gaussian 또는 VPoser 초기 자세 + Gaussian 체형\nDENet의 이미지·시간 조건 각속도·체형 변화율"
+      },
+      {
+        "title": "복수 SMPL 가설",
+        "text": "quaternion 적분 + 체형 RK2 · 20단계\n초기 샘플별 SMPL 메시·관절 생성\n정답 기반 best-of-N 평가와 실제 후보 선택 구분"
+      }
+    ],
+    "figureCaptions": [
+      "Figure 2 · 이미지 조건 + 회전·체형의 두 흐름"
+    ],
+    "figureCredits": [
+      "Cuong Le et al., CQF-HMR, Figure 2 (2026)"
+    ],
+    "figureChanges": [
+      "무손실 WebP 변환 · 크롭·내용 변경 없음"
+    ]
   }
 }
