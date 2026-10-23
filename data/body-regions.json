@@ -1,0 +1,66 @@
+{
+  "schema_version": "body_regions_bounded_v1",
+  "checked_at": "2026-10-23",
+  "reviewer_type": "assistant_primary_source_review",
+  "human_verified": false,
+  "scope": "5개 기록에 우선 적용한 부위 분류. 전체 문헌 판정이나 독립 논문 5편이라는 뜻이 아님. 기존 주제·표현 분류 및 고정 통계와 별개.",
+  "labels": {
+    "head_face": "얼굴·머리",
+    "hand": "손",
+    "hair": "머리카락"
+  },
+  "policy": "실제로 복원·모델링하는 부위만 복수 라벨로 기록. 입력·그림에 부위가 보이는 것만으로 포함하지 않음. 기록이 없거나 라벨이 없는 부위는 미확인이며 해당 부위를 복원하지 않는다는 판정이 아님. 버전별 판정을 다른 버전으로 전파하지 않음.",
+  "records": [
+    {
+      "id": "inc-b7c0b817607f8106d609",
+      "title": "GPAvatar: Generalizable and Precise Head Avatar from Image(s)",
+      "regions": [
+        "head_face"
+      ],
+      "source": "https://arxiv.org/abs/2401.10215v1",
+      "locator": "Abstract",
+      "reason": "한 장 또는 여러 이미지에서 3D 머리 아바타를 복원하고 표정·자세를 제어한다. 머리카락 전용 모델링으로 확대 판정하지 않는다."
+    },
+    {
+      "id": "hr_04747b730f0759",
+      "title": "Gaussian Head Avatar: Ultra High-fidelity Head Avatar via Dynamic Gaussians",
+      "regions": [
+        "head_face"
+      ],
+      "source": "https://arxiv.org/abs/2312.03029v2",
+      "locator": "v2 Abstract; v2 §4.1",
+      "reason": "가우시안과 변형장으로 머리 외형과 표정을 모델링한다. v3의 동적 머리카락 방법을 이 원논문 판정에 가져오지 않는다."
+    },
+    {
+      "id": "hr-fc06ae8a242ac2a9",
+      "title": "HHAvatar: Gaussian Head Avatar with Dynamic Hairs",
+      "regions": [
+        "head_face",
+        "hair"
+      ],
+      "source": "https://arxiv.org/html/2312.03029v3#S3.SS1.SSS2",
+      "locator": "v3 Abstract; III-A1 Head Avatar; III-A2 Dynamic Hair",
+      "reason": "머리와 머리카락을 나누고 시간 정보를 이용해 비강체 머리카락 운동을 모델링하므로 두 부위를 함께 포함한다. 기존 원논문과 연결된 확장판 관계는 보존한다."
+    },
+    {
+      "id": "hr_a6b2469a5e0ac0",
+      "title": "HARP: Personalized Hand Reconstruction From a Monocular RGB Video",
+      "regions": [
+        "hand"
+      ],
+      "source": "https://arxiv.org/abs/2212.09530v3",
+      "locator": "Abstract; official project Overview: https://korrawe.github.io/harp-project/",
+      "reason": "단안 RGB 손 영상에서 개인별 손의 기하와 외형을 복원한다. 카메라를 손으로 들었다는 입력 표현이 아니라 실제 손 아바타 출력에 근거한다."
+    },
+    {
+      "id": "hr_c04daad1715b7c",
+      "title": "MonoHair: High-Fidelity Hair Modeling from a Monocular Video",
+      "regions": [
+        "hair"
+      ],
+      "source": "https://arxiv.org/abs/2403.18356v1",
+      "locator": "Abstract; hair exterior/interior and strand-model output",
+      "reason": "단안 영상으로 머리카락 외부·내부 구조를 복원하고 모발 가닥 모델을 생성한다. 머리 정합을 위한 보조 모델을 얼굴 복원 기여로 세지 않는다."
+    }
+  ]
+}
