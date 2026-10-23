@@ -1,3 +1,12 @@
+CURRENT DISPLAY ASSET: summary.png (1536 x 1024)
+Independent ImageGen explanatory illustration, not an original author figure or actual model prediction. One generation and one targeted technical edit; fictional fully clothed adult and conceptual geometric maps/tracks.
+Method facts: Riza Alp Guler, Dense4D: Pixel-Level 4D Human Correspondence, arXiv:2610.22325v1, Sections 3.1-3.4; https://arxiv.org/html/2610.22325v1#S3 .
+Monocular RGB observations of one person, person masks and focal lengths define crop-aware inputs. Joint feed-forward heads predict Human Point Maps (HPMs) in the first observation's reference-time camera coordinates and per-frame depth, both with normalized scale. HPM nearest-neighbour matches establish target-frame corresponding pixels; each target's own depth lifts its match to a 3D camera-space position.
+The reference surface is that person's first-input pose, not a shared canonical body template. Point samples are an explanatory surface depiction, not a watertight mesh, Gaussian avatar, measured scan, numeric HPM or exact prediction. Coordinate colors indicate shared surface position; discrete markers identify matching wrist, shoulder and knee points. The lower temporal poses are deliberately laid out side by side for explanation; their spacing and connecting curves are not estimated world-space displacement or measured trajectories. Grayscale maps schematically illustrate normalized optical-axis depth, not appearance/normal maps or metric distances.
+No source photograph, paper figure, experimental rendering or original author layout was reused or traced. The paper's arXiv non-exclusive distribution license is not inferred to permit republishing its artwork. Absolute body size and camera distance are not recovered; world placement requires separate scene depth and camera poses. No performance, guaranteed occlusion recovery, body template, camera-pose prediction or hidden-body ground truth is asserted by the illustration.
+The historical CC BY4.0 notice below applies to the retired collection-authored diagram only, not to source paper/project artwork or an assumed license for this new summary.
+
+HISTORICAL NOTICE FOR RETIRED method-summary.webp (file retained):
 Original explanatory diagram by the Human Reconstruction Paper Collection editors.
 Concept source: Güler, Dense4D, arXiv:2610.22325v1, Sections 3.1–3.4.
 https://arxiv.org/html/2610.22325v1#S3
