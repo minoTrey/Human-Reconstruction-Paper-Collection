@@ -1,3 +1,13 @@
+CURRENT DISPLAY ASSET: summary.png (1536 x 1024)
+Independent ImageGen explanatory illustration for this archive, not an original author figure or actual paper prediction. One generation and one targeted technical correction;fictional adult portrait and independently illustrated representations.
+Method facts: Antonio Canela Jiménez and Jordi Sànchez-Riera, ChromaGS: Text-Driven Semantic Editing of 4D Gaussian Avatars, arXiv:2610.03441v1, Section III; https://arxiv.org/html/2610.03441v1#S3 .
+Prepare-once training: person video and SAM3 masks supervise semantic probabilities in a FLAME-bound Gaussian head. The paper's six semantic classes are hair, eyebrows, eyes, lips, skin and background; no separate clothing class is asserted.
+Runtime: a prepared avatar and text edit. The language parser extracts region/color/type;absolute instructions resolve against a palette,relative instructions use HSV. The example edits hair to copper only. The diagram does not depict photo-to-avatar inference or per-edit retraining.
+Class-level mean base color is separated from per-Gaussian appearance residuals;replace the chosen base color,retain residual detail and geometry. The grayscale residual tile is a schematic depiction of local appearance variation,not a measured depth/normal/residual map. Gaussian ellipsoid and semantic colors are illustrative,not actual learned parameters or quantitative results.
+Main before/after uses the same fictional adult identity/pose/light;an additional expression/view illustrates animation control. It is not a geometry,material,freckle or hair-shape editing method. No source photograph,author figure,layout or experimental rendering was reused or traced.
+The paper has arXiv non-exclusive distribution permission;no general original-figure reuse right is inferred. The historical CC BY4.0 notice below applies to the retired collection-authored diagram only,not to source paper/project artwork or an assumed license for this new summary.
+
+HISTORICAL NOTICE FOR RETIRED method-summary.webp (file retained):
 Original explanatory diagram by the Human Reconstruction Paper Collection editors.
 Concept source: Canela Jiménez and Sànchez-Riera, ChromaGS, arXiv:2610.03441v1, SectionIII.
 https://arxiv.org/html/2610.03441v1#S3
