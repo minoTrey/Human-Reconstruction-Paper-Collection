@@ -1,0 +1,4 @@
+Independent explanatory illustration for Latent Dynamics for Full Body Avatar Animation.
+Authors: Shichong Peng, Chengxiang Yin, Fei Jiang, Zhongshi Jiang, Lingchen Yang, Qingyang Tan, Amin Jourabloo, Jason Saragih, Ke Li, Christian Häne.
+Source: https://arxiv.org/html/2605.21478v1 Sections3-5.
+Created with ImageGen; generated adult and intermediate representations are illustrative, not paper predictions or experimental evidence. No original paper figure reproduced. Paper is under arXiv perpetual non-exclusive distribution license, which is not treated as a figure reuse grant.
