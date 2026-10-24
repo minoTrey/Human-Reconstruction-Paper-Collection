@@ -1,0 +1,4 @@
+Independent ImageGen explanation for RHINO: Reconstructing Human Interactions with Novel Objects from Monocular Videos.
+Authors: Lixin Xue, Chengwei Zheng, Georgios Paschalidis, Chen Guo, Manuel Kaufmann, Juan Zarate, Dimitrios Tzionas.
+Source: https://arxiv.org/html/2605.17014v1 Sections3-4.
+Generated adult, object, intermediate point clouds/SDFs and contact example are illustrative, not paper predictions or measured results. No original paper figure reproduced. Paper non-exclusive distribution license, code Apache2, external asset licenses and data terms have separate scopes.
