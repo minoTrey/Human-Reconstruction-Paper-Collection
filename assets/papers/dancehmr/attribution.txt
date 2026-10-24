@@ -1,0 +1,4 @@
+Independent ImageGen explanation for DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos.
+Authors: Wenhao Shen, Ming Zhou, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Yuan Zhang.
+Source: https://arxiv.org/html/2605.18102v3 Sections3-4.
+Generated adult, token features and meshes are illustrative, not paper experimental predictions. Original paper figures not reproduced: arXiv non-exclusive distribution license is not treated as figure reuse permission.
