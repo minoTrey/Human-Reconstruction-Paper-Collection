@@ -83,6 +83,12 @@ def verify_commit(site, preview, baseline, commit, changed):
             raise ValueError('Committed artifact differs from reviewed preview: ' + name)
 
 
+def require_clean_publication(site):
+    status = subprocess.check_output(['git', '-C', str(site), 'status', '--porcelain', '--untracked-files=normal'])
+    if status.strip():
+        raise ValueError('Unreviewed working-tree changes: commit reviewed scope before publication; never auto-add files')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=('preflight', 'approve', 'summary'))

@@ -38,5 +38,21 @@ class ScopedCommitTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'artifact'):
             self.guard()(self.site,self.preview,self.base,self.head,['paper.json'])
 
+    def test_publisher_rejects_untracked_or_staged_files(self):
+        path=Path(__file__).with_name('paper_guardrails.py')
+        spec=importlib.util.spec_from_file_location('guard',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        module.require_clean_publication(self.site)
+        (self.site/'unexpected.pyc').write_bytes(b'unreviewed')
+        with self.assertRaisesRegex(ValueError,'Unreviewed'):
+            module.require_clean_publication(self.site)
+        self.git('add','unexpected.pyc')
+        with self.assertRaisesRegex(ValueError,'Unreviewed'):
+            module.require_clean_publication(self.site)
+
+    def test_public_repository_tracks_no_generated_bytecode(self):
+        root=Path(__file__).resolve().parents[1]
+        tracked=subprocess.check_output(['git','-C',str(root),'ls-files'],text=True).splitlines()
+        self.assertEqual([], [n for n in tracked if '__pycache__' in n or n.endswith(('.pyc','.pyo'))])
+
 
 if __name__=='__main__':unittest.main(verbosity=2)
