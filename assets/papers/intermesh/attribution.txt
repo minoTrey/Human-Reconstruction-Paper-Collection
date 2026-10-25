@@ -1,0 +1,1 @@
+Independent ImageGen explanation, synthetic adult scene and SMPL representations; not measured predictions. Source: Kaili Zheng, Kaiwen Wang, Xun Zhu, Chenyi Guo, Ji Wu, InterMesh, arXiv2605.04554v2, https://arxiv.org/html/2605.04554v2 . Paper CC BY4.0; no original figure pixels reused. Implementation/model/upstream licenses separate.
