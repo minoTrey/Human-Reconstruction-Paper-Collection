@@ -1,0 +1,15 @@
+name: Paper workflow guardrails
+on:
+  push:
+    paths: ['tools/**', 'docs/PAPER_WORKFLOW.md', 'AGENTS.md', '.github/workflows/paper-guardrails.yml']
+  pull_request:
+    paths: ['tools/**', 'docs/PAPER_WORKFLOW.md', 'AGENTS.md', '.github/workflows/paper-guardrails.yml']
+permissions:
+  contents: read
+jobs:
+  fast-controls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test paper controls and deliberate invalid fixtures
+        run: python3 -m unittest discover -s tools -p 'test_*.py'

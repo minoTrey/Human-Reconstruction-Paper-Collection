@@ -1,0 +1,54 @@
+# One-paper workflow
+
+1. Read the official method, conditions, date/version evidence and resource licenses once.
+   Record purpose, input, method, output and limits in one bundle. Keep uncertainty explicit.
+2. Start the independent summary image after method facts are stable. Write the bundle while
+   generation runs. Do not replace scientific checks with taste-based iterations.
+3. Open the final PNG. Confirm input/representation/output, identity/pose relationships,
+   labels, learning/inference separation and the illustrative-example label.
+4. Record that actual human review, then run the fast preflight:
+
+   ```sh
+   python tools/paper_guardrails.py approve bundle/spec.json --science --labels --output-form
+   python tools/paper_guardrails.py preflight bundle/spec.json
+   ```
+
+   These switches attest to completed visual inspection; they must not be set blindly.
+   The review is bound to image bytes and method content. It contains no private identity.
+5. Run static data validation once per final revision. Use dependency keys for changed
+   search/detail/figure screens at desktop and 390px. Inspect new scientific images and
+   affected screens. The production focused runner and commit-preparation command invoke
+   the same canonical guard before building/committing. Their proof includes guard version.
+6. Commit only reviewed manifest files. Check uncertain remote outcomes before reposting.
+   On Pages completion, immediately verify expected commit and changed public bytes, then
+   generate fresh public screenshots. Skip the second human read only when every relevant
+   screenshot equals a currently reviewed local screenshot. Failure/missing/timeout is not pass.
+7. Return one completion record, including actual elapsed phases and exceptions. Keep private
+   execution records outside this public repository. Use the bounded record viewer:
+
+   ```sh
+   python tools/paper_guardrails.py summary bundle/completion.json
+   python -m unittest discover -s tools -p "test_*.py"
+   ```
+
+The public `paper_qa_cache.py` is the canonical existing cache/deployment implementation;
+the production adapter imports it. This repository does not distribute authentication
+or local account configuration. Publication uses the existing authorized publisher.
+
+## Incident controls
+
+| Reproduction / cause | Correction and prevention | Evidence / status |
+|---|---|---|
+| Automatic QA before image correction finished; a second image edit invalidated results | Final-image approval bound to PNG and method; missing/stale approval blocks QA and commit | `GuardrailTests.test_no_automated_qa_before_final_image_review`, `test_changed_image_or_method_invalidates_manual_approval`; enforced |
+| Required word existed only in an internal field; screenshot expectation could never pass | Derive terms from actual rendered fields; each term needs a source claim. A source/content mismatch must be corrected rather than changing expectations to fit bad text | `test_visibility_and_source_errors_are_aggregated`; enforced syntactically, semantics remain manual |
+| Whole-bundle cache key repeated unrelated search/image screens after wording edits | Separate search/detail/figure keys; changed content invalidates only dependent groups | `ReuseTests.test_text_change_invalidates_only_two_detail_groups`, `test_image_change_invalidates_detail_and_figure_only`; enforced |
+| Unchanged README line endings blocked a paper commit | Compare only the reviewed manifest, but reject actual unrelated committed edits and mismatched bytes | `ScopedCommitTests` three tests; enforced |
+| Large source/JSON/image output was truncated, requiring state recovery | Raw evidence stays in files; bounded summary preserves error tail. Check completion/process state before rerun | `test_console_output_is_bounded_and_tail_preserved`; summary command enforced, arbitrary tool-output discipline manual |
+| Label typo, wrong mesh/hair/material or intermediate representation; repeated cosmetic edits | Inspect final image against input/method/output before QA; no aesthetic-only retry after quality pass | `test_incomplete_manual_checks_do_not_approve`; approval presence/hash enforced, image meaning remains human |
+| Long observation gap after Pages completed | Poll existing deployment metadata; return immediately on observed success, then fresh public-file/screen verification | `test_deployment_success_returns_without_another_sleep`, `test_deployment_failure_is_not_success`; enforced |
+| Public image/screenshot changed or missing but duplicate visual read was skipped | Require byte equality plus current local review proof; otherwise fresh review required | `test_public_mismatch_or_missing_capture_cannot_skip_review`; enforced |
+
+Controls were introduced test-first: absent guard produced six setup errors; the first
+implementation exposed a 201-character result for a 200-character bound. The output-slice
+defect was fixed without weakening the bound. Intentional invalid fixtures are rejected
+by the passing suite. Scientific image correctness is not claimed to be fully automated.

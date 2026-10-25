@@ -13,3 +13,5 @@ Update records in the JSON indexes and corresponding detail shard. Preserve exac
 Public metadata only. No private research, credentials, PDFs or per-paper PNG cards are included. See [source and aggregation rules](about.html).
 
 Editorial field corrections and old-ID aliases: `downloads/editorial-reviews.json`. Original frozen corpus retained locally; one ECON alias removed from active web counts. Reading relationships distinguish extensions, body-model dependencies, alternatives and experimental baselines. Unknown comparison fields stay unknown. No performance ranking is inferred.
+
+Paper updates: [workflow and incident controls](docs/PAPER_WORKFLOW.md). Start with [AGENTS.md](AGENTS.md); run the fast preflight before paper QA and publication.
