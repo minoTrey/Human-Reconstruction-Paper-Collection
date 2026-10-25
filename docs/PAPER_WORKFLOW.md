@@ -6,6 +6,10 @@
    generation runs. Do not replace scientific checks with taste-based iterations.
 3. Open the final PNG. Confirm input/representation/output, identity/pose relationships,
    labels, learning/inference separation and the illustrative-example label.
+   A source-backed prompt defines intended connections, not verified generated arrows.
+   Compare every actual module input/output arrow with that source graph immediately after
+   generation; simplify crossings without removing required relationships. Approval follows
+   this inspection, never the prompt alone. Arrow semantics remain a human check.
 4. Record that actual human review, then run the fast preflight:
 
    ```sh
