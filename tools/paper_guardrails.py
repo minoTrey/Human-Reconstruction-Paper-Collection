@@ -36,6 +36,37 @@ def visible_text(spec):
                      *[s['title'] + ' ' + s['text'] for s in c.get('steps', [])]])
 
 
+def term_plan(spec):
+    qa = spec['qa']
+    candidates = qa.get('term_candidates', qa.get('term_claim_refs', {}))
+    visible, claims = visible_text(spec), spec.get('claims', {})
+    sources = spec['content'].get('sources', [])
+    selected, omitted = {}, []
+    for term, claim_id in candidates.items():
+        claim = claims.get(claim_id, {})
+        refs = claim.get('sources', [])
+        if (not refs or term not in claim.get('value', '') or any(
+                not isinstance(i, int) or i < 0 or i >= len(sources) or not sources[i].get('url') for i in refs)):
+            raise ValueError('Invalid source-backed term candidate: ' + term)
+        if term in visible:
+            selected[term] = claim_id
+        else:
+            omitted.append(term)
+    if not selected:
+        raise ValueError('No visible source-backed terms; inspect content and candidates')
+    payload = {'version': 1, 'visible': visible, 'claims': claims, 'sources': sources, 'candidates': candidates}
+    key = hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True).encode('utf8')).hexdigest()
+    return selected, omitted, {'version': 1, 'input_sha256': key}
+
+
+def select_terms(spec):
+    qa = spec['qa']
+    qa.setdefault('term_candidates', dict(qa.get('term_claim_refs', {})))
+    selected, omitted, proof = term_plan(spec)
+    qa.update(required_text=list(selected), term_claim_refs=selected, term_selection=proof)
+    return omitted
+
+
 def image_binding(spec, root):
     assets = {f['input_file']: hashlib.sha256((Path(root) / f['input_file']).read_bytes()).hexdigest()
               for f in spec['metadata'].get('figures', [])}
@@ -58,6 +89,14 @@ def preflight(spec, root):
     visible = visible_text(spec)
     claims = spec.get('claims', {})
     sources = spec['content'].get('sources', [])
+    try:
+        selected, _, proof = term_plan(spec)
+        qa = spec['qa']
+        if (qa.get('term_selection') != proof or qa.get('required_text') != list(selected)
+                or qa.get('term_claim_refs') != selected):
+            error('term_selection_stale', 'qa', 'Run terms after authoring; rendered content or source terms changed')
+    except ValueError as exc:
+        error('term_candidate_source', 'qa', str(exc))
     for term in spec.get('qa', {}).get('required_text', []):
         if term not in visible:
             error('visible_term', term, 'Expected term absent from rendered fields; inspect content/source before changing expectation')
@@ -104,7 +143,7 @@ def require_clean_publication(site):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=('preflight', 'approve', 'summary'))
+    parser.add_argument('action', choices=('terms', 'preflight', 'approve', 'summary'))
     parser.add_argument('path')
     parser.add_argument('--science', action='store_true')
     parser.add_argument('--labels', action='store_true')
@@ -112,6 +151,11 @@ def main():
     args = parser.parse_args()
     path = Path(args.path)
     value = json.loads(path.read_text('utf8'))
+    if args.action == 'terms':
+        omitted = select_terms(value)
+        path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
+        print(json.dumps({'status': 'terms_selected', 'required': value['qa']['required_text'], 'omitted_internal_only': omitted}, ensure_ascii=False))
+        return
     if args.action == 'summary':
         print(bounded(json.dumps({k: value.get(k) for k in ('id', 'status', 'prepared_commit', 'run_counts', 'run_seconds')}, ensure_ascii=False)))
         return

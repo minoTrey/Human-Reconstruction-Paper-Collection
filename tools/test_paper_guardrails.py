@@ -23,6 +23,7 @@ class GuardrailTests(unittest.TestCase):
         loader.loader.exec_module(self.guard)
 
     def approve(self):
+        self.guard.select_terms(self.spec)
         review = self.guard.approval(self.spec, self.root, science=True, labels=True, output_form=True)
         (self.root / 'image-review.json').write_text(json.dumps(review), encoding='utf8')
 
@@ -53,6 +54,28 @@ class GuardrailTests(unittest.TestCase):
     def test_incomplete_manual_checks_do_not_approve(self):
         with self.assertRaises(ValueError):
             self.guard.approval(self.spec, self.root, science=True, labels=False, output_form=True)
+
+    def test_authoring_terms_exclude_internal_only_words(self):
+        self.spec['content']['fields']['optimization'] = 'StyleGAN2'
+        self.spec['claims']['training'] = {'value': 'StyleGAN2', 'sources': [0]}
+        self.spec['qa']['term_candidates'] = {'Gaussian': 'method', 'StyleGAN2': 'training'}
+        omitted = self.guard.select_terms(self.spec)
+        self.assertEqual(['StyleGAN2'], omitted)
+        self.assertEqual(['Gaussian'], self.spec['qa']['required_text'])
+
+    def test_authoring_terms_reject_unbacked_candidates(self):
+        self.spec['qa']['term_candidates'] = {'Gaussian': 'missing-claim'}
+        with self.assertRaisesRegex(ValueError, 'source'):
+            self.guard.select_terms(self.spec)
+
+    def test_term_selection_is_required_and_invalidated_by_content(self):
+        self.approve()
+        self.spec['qa'].pop('term_selection')
+        self.assertIn('term_selection_stale', [e['code'] for e in self.guard.preflight(self.spec, self.root)])
+        self.guard.select_terms(self.spec)
+        self.assertEqual([], self.guard.preflight(self.spec, self.root))
+        self.spec['content']['summary'] += ' changed'
+        self.assertIn('term_selection_stale', [e['code'] for e in self.guard.preflight(self.spec, self.root)])
 
     def test_console_output_is_bounded_and_tail_preserved(self):
         value = 'x' * 10000 + 'FAILED'

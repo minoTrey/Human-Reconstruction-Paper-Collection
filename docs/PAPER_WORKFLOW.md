@@ -2,6 +2,11 @@
 
 1. Read the official method, conditions, date/version evidence and resource licenses once.
    Record purpose, input, method, output and limits in one bundle. Keep uncertainty explicit.
+   Before final-image review, run `python tools/paper_guardrails.py terms bundle/spec.json`.
+   Candidate terms must occur in both a source-backed claim and an actual rendered field.
+   Internal-only candidates are reported, not used as screen expectations. Inspect omitted
+   terms for missing essential reader content; never change scientific text merely to pass.
+   Content, claims or candidate changes invalidate this selection at QA and commit preflight.
 2. Start the independent summary image after method facts are stable. Write the bundle while
    generation runs. Do not replace scientific checks with taste-based iterations.
 3. Open the final PNG. Confirm input/representation/output, identity/pose relationships,
@@ -44,7 +49,7 @@ or local account configuration. Publication uses the existing authorized publish
 | Reproduction / cause | Correction and prevention | Evidence / status |
 |---|---|---|
 | Automatic QA before image correction finished; a second image edit invalidated results | Final-image approval bound to PNG and method; missing/stale approval blocks QA and commit | `GuardrailTests.test_no_automated_qa_before_final_image_review`, `test_changed_image_or_method_invalidates_manual_approval`; enforced |
-| Required word existed only in an internal field; screenshot expectation could never pass | Derive terms from actual rendered fields; each term needs a source claim. A source/content mismatch must be corrected rather than changing expectations to fit bad text | `test_visibility_and_source_errors_are_aggregated`; enforced syntactically, semantics remain manual |
+| Required word existed only in an internal field; final-image preflight caught it late because candidates were hand-selected before checking rendered fields | Authoring `terms` command derives screen expectations from rendered fields AND source-backed claims. Internal-only candidates are reported; missing source terms fail. QA/commit reject missing or stale selection after content/source changes. Do not alter scientific meaning to fit an expectation | `test_authoring_terms_exclude_internal_only_words`, `test_authoring_terms_reject_unbacked_candidates`, `test_term_selection_is_required_and_invalidated_by_content`; semantics remain manual |
 | Whole-bundle cache key repeated unrelated search/image screens after wording edits | Separate search/detail/figure keys; changed content invalidates only dependent groups | `ReuseTests.test_text_change_invalidates_only_two_detail_groups`, `test_image_change_invalidates_detail_and_figure_only`; enforced |
 | Unchanged README line endings blocked a paper commit | Compare only the reviewed manifest, but reject actual unrelated committed edits and mismatched bytes | `ScopedCommitTests` three tests; enforced |
 | Large source/JSON/image output was truncated, requiring state recovery | Raw evidence stays in files; bounded summary preserves error tail. Check completion/process state before rerun | `test_console_output_is_bounded_and_tail_preserved`; summary command enforced, arbitrary tool-output discipline manual |
