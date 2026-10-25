@@ -1,0 +1,1 @@
+Independent ImageGen explanation with synthetic adult, neutral body-motion and coarse scene proxies; not measured predictions. Hao-Yu Hsu, Tianhang Cheng, Jing Wen, Alexander G. Schwing, Shenlong Wang, Seeing Without Eyes, arXiv2604.21926v1, https://arxiv.org/html/2604.21926v1 . Paper CC BY4.0; original figures not copied. Separate code/model/data/source licenses not generalized.
