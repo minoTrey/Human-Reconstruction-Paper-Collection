@@ -1,0 +1,4 @@
+Independent ImageGen explanation for FactorizedHMR: A Hybrid Framework for Video Human Mesh Recovery.
+Authors: Patrick Kwon, Chen Chen.
+Source: https://arxiv.org/html/2605.14854v4 Sections3-4.
+Generated adult, body meshes and completion are explanatory, not actual paper predictions or measured performance. No original paper image reproduced. Paper CC BY-NC-SA4.0; no verified code/model license or official link invented.
