@@ -60,6 +60,15 @@ class GuardrailTests(unittest.TestCase):
         self.assertLessEqual(len(result), 200)
         self.assertTrue(result.endswith('FAILED'))
 
+    def test_tuple_version_lookup_rejected_before_build(self):
+        broken = "versions={n:n for n in ['browser','guard']}\nselected=versions['browser','guard']"
+        with self.assertRaisesRegex(ValueError, 'scalar'):
+            self.guard.assert_runner_wiring(broken)
+
+    def test_valid_version_lookup_passes_without_executing_caller(self):
+        valid = "versions={n:n for n in ['browser','guard']}\nselected=versions['browser']"
+        self.guard.assert_runner_wiring(valid)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

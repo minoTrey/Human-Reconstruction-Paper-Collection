@@ -1,5 +1,6 @@
 """Fast publication preflight. Human scientific review is explicit, never inferred."""
 import argparse
+import ast
 import hashlib
 import json
 from pathlib import Path
@@ -7,6 +8,18 @@ import subprocess
 
 POLICY_VERSION = 1
 VISIBLE_FIELDS = ('input', 'output', 'conditions', 'evaluation', 'limitations')
+
+
+def assert_runner_wiring(source):
+    """Check actual caller wiring without starting a build/browser or importing it."""
+    tree = ast.parse(source)
+    declaration = next(n.value for n in ast.walk(tree) if isinstance(n, ast.Assign)
+                       and any(isinstance(t, ast.Name) and t.id == 'versions' for t in n.targets))
+    keys = {n.value for n in declaration.generators[0].iter.elts}
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Subscript) and isinstance(node.value, ast.Name) and node.value.id == 'versions':
+            if not isinstance(node.slice, ast.Constant) or node.slice.value not in keys:
+                raise ValueError('Invalid runner version lookup: expected one declared scalar key')
 
 
 def bounded(value, limit=2000):
