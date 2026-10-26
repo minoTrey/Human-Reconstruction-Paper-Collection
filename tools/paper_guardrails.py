@@ -71,8 +71,15 @@ def image_binding(spec, root):
     assets = {f['input_file']: hashlib.sha256((Path(root) / f['input_file']).read_bytes()).hexdigest()
               for f in spec['metadata'].get('figures', [])}
     method = {k: spec['content'].get(k) for k in ('summary', 'fields', 'steps')}
-    return {'assets': assets, 'method_sha256': hashlib.sha256(
+    binding = {'assets': assets, 'method_sha256': hashlib.sha256(
         json.dumps(method, ensure_ascii=False, sort_keys=True).encode('utf8')).hexdigest()}
+    diagram = spec.get('diagram')
+    if diagram:
+        graph_file = diagram.get('source_graph_file')
+        graph_hash = hashlib.sha256((Path(root) / graph_file).read_bytes()).hexdigest() if graph_file else None
+        binding['diagram_sha256'] = hashlib.sha256(json.dumps(
+            [diagram, graph_hash], ensure_ascii=False, sort_keys=True).encode('utf8')).hexdigest()
+    return binding
 
 
 def approval(spec, root, *, science=False, labels=False, output_form=False):
@@ -112,7 +119,10 @@ def preflight(spec, root):
         if review.get('binding') != image_binding(spec, root):
             error('image_review_stale', 'image-review', 'Image or method changed after final image review')
     except FileNotFoundError:
-        error('image_review_missing', 'image-review', 'Inspect final image before automated QA, then record approval')
+        if (Path(root) / 'image-review.json').exists():
+            error('image_review_invalid', 'image-review', 'Referenced image or source graph is missing; restore it and inspect before approval')
+        else:
+            error('image_review_missing', 'image-review', 'Inspect final image before automated QA, then record approval')
     except (ValueError, OSError, KeyError) as exc:
         error('image_review_invalid', 'image-review', type(exc).__name__)
     return errors

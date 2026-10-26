@@ -23,7 +23,11 @@
    ```
 
    These switches attest to completed visual inspection; they must not be set blindly.
-   The review is bound to image bytes and method content. It contains no private identity.
+   The review is bound to image bytes, method content, the diagram contract and the bytes
+   of its referenced source graph. A graph/constraint change invalidates approval even
+   if the PNG did not change. Inspect the actual output against the revised graph before
+   approving again; matching hashes do not prove that an arrow is scientifically correct.
+   The review contains no private identity.
 5. Run static data validation once per final revision. Use dependency keys for changed
    search/detail/figure screens at desktop and 390px. Inspect new scientific images and
    affected screens. The production focused runner and commit-preparation command invoke
@@ -54,6 +58,7 @@ or local account configuration. Publication uses the existing authorized publish
 | Unchanged README line endings blocked a paper commit | Compare only the reviewed manifest, but reject actual unrelated committed edits and mismatched bytes | `ScopedCommitTests` three tests; enforced |
 | Large source/JSON/image output was truncated, requiring state recovery | Raw evidence stays in files; bounded summary preserves error tail. Check completion/process state before rerun | `test_console_output_is_bounded_and_tail_preserved`; summary command enforced, arbitrary tool-output discipline manual |
 | Label typo, wrong mesh/hair/material or intermediate representation; repeated cosmetic edits | Inspect final image against input/method/output before QA; no aesthetic-only retry after quality pass | `test_incomplete_manual_checks_do_not_approve`; approval presence/hash enforced, image meaning remains human |
+| A source graph or diagram constraint changed but unchanged PNG/body text left an old approval valid | Bind source-graph bytes and diagram contract to final-image approval. Missing graph blocks approval; actual arrow inspection remains mandatory | `test_changed_source_graph_invalidates_manual_approval`, `test_changed_diagram_contract_invalidates_manual_approval`, `test_missing_graph_cannot_be_approved`; enforced at existing QA/commit preflight |
 | A targeted pass/text edit changed a preserved hand or pose in another panel | Name edit regions and invariants; retain the last good image. After every edit, compare the whole output for changes to preserved people, poses, layers, labels and connections. A local edit instruction is not proof of locality | Existing hash-bound final-image approval remains mandatory; edit locality and scientific meaning require manual verification |
 | Long observation gap after Pages completed | Poll existing deployment metadata; return immediately on observed success, then fresh public-file/screen verification | `test_deployment_success_returns_without_another_sleep`, `test_deployment_failure_is_not_success`; enforced |
 | Public image/screenshot changed or missing but duplicate visual read was skipped | Require byte equality plus current local review proof; otherwise fresh review required | `test_public_mismatch_or_missing_capture_cannot_skip_review`; enforced |

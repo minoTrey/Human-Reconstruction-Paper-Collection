@@ -42,6 +42,32 @@ class GuardrailTests(unittest.TestCase):
         self.spec['content']['steps'] = [{'title': 'changed', 'text': 'new method'}]
         self.assertIn('image_review_stale', [e['code'] for e in self.guard.preflight(self.spec, self.root)])
 
+    def test_changed_source_graph_invalidates_manual_approval(self):
+        self.spec['diagram'] = {'source_graph_file': 'method-graph.json', 'claim_refs': ['method']}
+        graph = self.root / 'method-graph.json'
+        graph.write_text('{"inference":["RGB -> features -> Gaussian"]}', encoding='utf8')
+        self.approve()
+        graph.write_text('{"inference":["RGB -> Gaussian"]}', encoding='utf8')
+        self.assertIn('image_review_stale', [e['code'] for e in self.guard.preflight(self.spec, self.root)])
+
+    def test_changed_diagram_contract_invalidates_manual_approval(self):
+        self.spec['diagram'] = {'claim_refs': ['method'], 'forbidden': ['input-output bypass']}
+        self.approve()
+        self.spec['diagram']['forbidden'].append('cached parameters sampled')
+        self.assertIn('image_review_stale', [e['code'] for e in self.guard.preflight(self.spec, self.root)])
+
+    def test_missing_graph_cannot_be_approved(self):
+        self.spec['diagram'] = {'source_graph_file': 'missing.json'}
+        with self.assertRaises(FileNotFoundError):
+            self.approve()
+
+    def test_unrelated_work_note_does_not_invalidate_image_review(self):
+        self.spec['diagram'] = {'source_graph_file': 'method-graph.json'}
+        (self.root / 'method-graph.json').write_text('{"inference":["RGB -> Gaussian"]}', encoding='utf8')
+        self.approve()
+        (self.root / 'working-note.txt').write_text('unrelated timing note', encoding='utf8')
+        self.assertEqual([], self.guard.preflight(self.spec, self.root))
+
     def test_visibility_and_source_errors_are_aggregated(self):
         self.approve()
         self.spec['qa']['required_text'] += ['internal-only', 'unbound']
