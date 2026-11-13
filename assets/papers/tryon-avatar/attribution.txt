@@ -1,4 +1,4 @@
-Original explanatory diagram, created for this collection. Not a reproduced paper figure or experimental result.
+Original AI-assisted explanatory illustration, grounded in the cited method. Illustrative people and intermediate representations; not paper figures, real subjects, or experimental results.
 Sources:
 https://arxiv.org/pdf/2610.34223#page=4 pp.4–8 방법·사진 조건
 https://arxiv.org/pdf/2610.34223#page=9 pp.9–13 평가·한계

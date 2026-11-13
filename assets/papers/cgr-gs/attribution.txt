@@ -1,4 +1,4 @@
-Original explanatory diagram, created for this collection. Not a reproduced paper figure or experimental result.
+Original AI-assisted explanatory illustration, grounded in the cited method. Illustrative people and intermediate representations; not paper figures, real subjects, or experimental results.
 Sources:
 https://arxiv.org/html/2610.35152v1 §3, Appendix C.3–C.4 및 D
 https://github.com/DCVL-3D/CGR-GS_release 공식 입력·실행 구성

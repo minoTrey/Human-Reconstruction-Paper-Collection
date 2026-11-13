@@ -1,4 +1,4 @@
-Original explanatory diagram, created for this collection. Not a reproduced paper figure or experimental result.
+Original AI-assisted explanatory illustration, grounded in the cited method. Illustrative people and intermediate representations; not paper figures, real subjects, or experimental results.
 Sources:
 https://arxiv.org/pdf/2611.09195v2 v2 §3 방법, §6 한계
 https://github.com/Naturalpad-studio/InstantHMR 공식 구현·모델 및 라이선스
