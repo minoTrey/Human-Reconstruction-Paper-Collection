@@ -10,7 +10,7 @@ Static files need no dependencies. Preview with `python -m http.server 4182 --bi
 
 Update records in the JSON indexes and corresponding detail shard. Preserve exact titles, source links and evidence labels. Do not infer a venue from an arXiv year or a method lineage from citations. Review 2026 as a partial year through October 20.
 
-Public metadata only. No private research, credentials, PDFs or per-paper PNG cards are included. See [source and aggregation rules](about.html).
+Public metadata only. No private research, credentials or PDFs are included. Selected paper guides contain original explanatory PNG diagrams. See [source and aggregation rules](about.html).
 
 Editorial field corrections and old-ID aliases: `downloads/editorial-reviews.json`. Original frozen corpus retained locally; one ECON alias removed from active web counts. Reading relationships distinguish extensions, body-model dependencies, alternatives and experimental baselines. Unknown comparison fields stay unknown. No performance ranking is inferred.
 
@@ -18,4 +18,4 @@ Paper updates: [workflow and incident controls](docs/PAPER_WORKFLOW.md). Start w
 
 ## Selected new-paper update: 2026-11-13
 
-Added 10 source-verified papers first submitted October 21 through November 7, 2026. The reader catalog now has 1,963 records; the broad layer has 14,435. This is a selected update, not an exhaustive new-paper crawl. The 1,929-record October 20 statistical reference corpus and its charts remain unchanged. New records contain brief source summaries, not completed illustrated technical reviews or reproduced experiments. No source-paper images were republished.
+Added 10 source-verified papers first submitted October 21 through November 7, 2026. The reader catalog now has 1,963 records; the broad layer has 14,435. This is a selected update, not an exhaustive new-paper crawl. The 1,929-record October 20 statistical reference corpus and its charts remain unchanged. All 10 new records now include source-verified technical explanations, inputs and conditions, evaluation caveats, limitations, and original method diagrams. This is a literature review, not an independent reproduction of model experiments. No source-paper images were republished.

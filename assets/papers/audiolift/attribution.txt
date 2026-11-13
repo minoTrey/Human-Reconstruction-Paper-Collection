@@ -1,0 +1,3 @@
+Original explanatory diagram, created for this collection. Not a reproduced paper figure or experimental result.
+Sources:
+https://arxiv.org/html/2610.31747v1 §3.2–3.3, Fig.3, §4.1–4.3

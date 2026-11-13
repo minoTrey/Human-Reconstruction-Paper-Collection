@@ -1,0 +1,4 @@
+Original explanatory diagram, created for this collection. Not a reproduced paper figure or experimental result.
+Sources:
+https://arxiv.org/html/2611.08330v1 §3.2–3.3, Appendix H–I
+https://coolho1129.github.io/InstantHand-page/ 공식 결과·입력 조건

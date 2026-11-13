@@ -1,0 +1,3 @@
+Original explanatory diagram, created for this collection. Not a reproduced paper figure or experimental result.
+Sources:
+https://arxiv.org/html/2611.10562v1 §IV 방법, §V-A 평가, §VI-A 한계
